@@ -61,8 +61,8 @@ class DeadMapDecoder {
 public:
     DeadMapDecoder(const ITSGeometry& geo);
 
-    std::vector<uint16_t> expandvector(std::vector<uint16_t> words, std::string version, TString opt);    
-    std::vector<DeadStave> analysis(int RunNumber, TString path);
+    std::vector<uint16_t> expandvector(std::vector<uint16_t> words, std::string version, string opt);    
+    std::vector<DeadStave> analysis(int RunNumber, string path);
 
     private:
 

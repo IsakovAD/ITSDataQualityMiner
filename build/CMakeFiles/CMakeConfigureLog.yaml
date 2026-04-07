@@ -1,0 +1,1797 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Linux - 5.14.0-611.27.1.el9_7.x86_64 - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/3.31.6/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-I729LW"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-I729LW"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-I729LW'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0fa5d/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_0fa5d.dir/build.make CMakeFiles/cmTC_0fa5d.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-I729LW'
+        Building CXX object CMakeFiles/cmTC_0fa5d.dir/CMakeCXXCompilerABI.cpp.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++   -v -o CMakeFiles/cmTC_0fa5d.dir/CMakeCXXCompilerABI.cpp.o -c /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        COLLECT_GCC=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/c++
+        Target: x86_64-unknown-linux-gnu
+        Configured with: ../gcc/configure --prefix=/local/workspace/build-any-ib/sw/2015/1/INSTALLROOT/cce2211895a8fc44eead8405b529a19c96b02ca0/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1 --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --enable-languages=c,c++,fortran --disable-multilib --enable-ld=default --enable-lto --disable-nls
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 14.2.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_87b4c.dir/CMakeCXXCompilerABI.cpp.o' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_87b4c.dir/'
+         /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/cc1plus -quiet -v -iprefix /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/ -D_GNU_SOURCE /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_87b4c.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccvDteGW.s
+        GNU C++17 (GCC) version 14.2.0 (x86_64-unknown-linux-gnu)
+        	compiled by GNU C version 14.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/include"
+        ignoring duplicate directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0"
+        ignoring duplicate directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/x86_64-unknown-linux-gnu"
+        ignoring duplicate directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/backward"
+        ignoring duplicate directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include"
+        ignoring duplicate directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include-fixed"
+        ignoring nonexistent directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0
+         /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/x86_64-unknown-linux-gnu
+         /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/backward
+         /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include
+         /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include-fixed
+         /usr/local/include
+         /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../include
+         /usr/include
+        End of search list.
+        Compiler executable checksum: a68c5d196c121fa2d50d8b715fb55f3d
+        COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_87b4c.dir/CMakeCXXCompilerABI.cpp.o' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_87b4c.dir/'
+         /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_87b4c.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccvDteGW.s
+        GNU assembler version 2.43 (x86_64-unknown-linux-gnu) using BFD version (GNU Binutils) 2.43
+        COMPILER_PATH=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/bin/
+        LIBRARY_PATH=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_87b4c.dir/CMakeCXXCompilerABI.cpp.o' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_87b4c.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_0fa5d
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0fa5d.dir/link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/c++
+        COLLECT_LTO_WRAPPER=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/lto-wrapper
+        Target: x86_64-unknown-linux-gnu
+        Configured with: ../gcc/configure --prefix=/local/workspace/build-any-ib/sw/2015/1/INSTALLROOT/cce2211895a8fc44eead8405b529a19c96b02ca0/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1 --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --enable-languages=c,c++,fortran --disable-multilib --enable-ld=default --enable-lto --disable-nls
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 14.2.0 (GCC) 
+        COMPILER_PATH=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/bin/
+        LIBRARY_PATH=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0fa5d' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_0fa5d.'
+         /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/collect2 -plugin /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/liblto_plugin.so -plugin-opt=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccEfSISb.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_0fa5d /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtbegin.o -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0 -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../.. -v CMakeFiles/cmTC_0fa5d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtend.o /lib/../lib64/crtn.o
+        collect2 version 14.2.0
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/bin/ld -plugin /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/liblto_plugin.so -plugin-opt=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccEfSISb.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_0fa5d /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtbegin.o -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0 -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../.. -v CMakeFiles/cmTC_0fa5d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtend.o /lib/../lib64/crtn.o
+        GNU ld (GNU Binutils) 2.43
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0fa5d' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_0fa5d.'
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++  -v -Wl,-v CMakeFiles/cmTC_0fa5d.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_0fa5d
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-I729LW'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0]
+          add: [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/x86_64-unknown-linux-gnu]
+          add: [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/backward]
+          add: [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include]
+          add: [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include-fixed]
+          add: [/usr/local/include]
+          add: [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../include]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/include/c++/14.2.0]
+        collapse include dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/x86_64-unknown-linux-gnu] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/include/c++/14.2.0/x86_64-unknown-linux-gnu]
+        collapse include dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/backward] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/include/c++/14.2.0/backward]
+        collapse include dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include]
+        collapse include dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include-fixed] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include-fixed]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../include] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/include]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/include/c++/14.2.0;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/include/c++/14.2.0/x86_64-unknown-linux-gnu;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/include/c++/14.2.0/backward;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include-fixed;/usr/local/include;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/include;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-I729LW']
+        ignore line: []
+        ignore line: [Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0fa5d/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_0fa5d.dir/build.make CMakeFiles/cmTC_0fa5d.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-I729LW']
+        ignore line: [Building CXX object CMakeFiles/cmTC_0fa5d.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++   -v -o CMakeFiles/cmTC_0fa5d.dir/CMakeCXXCompilerABI.cpp.o -c /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/c++]
+        ignore line: [Target: x86_64-unknown-linux-gnu]
+        ignore line: [Configured with: ../gcc/configure --prefix=/local/workspace/build-any-ib/sw/2015/1/INSTALLROOT/cce2211895a8fc44eead8405b529a19c96b02ca0/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1 --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --enable-languages=c,c++,fortran --disable-multilib --enable-ld=default --enable-lto --disable-nls]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 14.2.0 (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_87b4c.dir/CMakeCXXCompilerABI.cpp.o' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_87b4c.dir/']
+        ignore line: [ /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/cc1plus -quiet -v -iprefix /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/ -D_GNU_SOURCE /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_87b4c.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccvDteGW.s]
+        ignore line: [GNU C++17 (GCC) version 14.2.0 (x86_64-unknown-linux-gnu)]
+        ignore line: [	compiled by GNU C version 14.2.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.24-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/include"]
+        ignore line: [ignoring duplicate directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0"]
+        ignore line: [ignoring duplicate directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/x86_64-unknown-linux-gnu"]
+        ignore line: [ignoring duplicate directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/backward"]
+        ignore line: [ignoring duplicate directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include"]
+        ignore line: [ignoring duplicate directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0]
+        ignore line: [ /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/x86_64-unknown-linux-gnu]
+        ignore line: [ /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../include/c++/14.2.0/backward]
+        ignore line: [ /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include]
+        ignore line: [ /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/include-fixed]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/../../include]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: a68c5d196c121fa2d50d8b715fb55f3d]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_87b4c.dir/CMakeCXXCompilerABI.cpp.o' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_87b4c.dir/']
+        ignore line: [ /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_87b4c.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccvDteGW.s]
+        ignore line: [GNU assembler version 2.43 (x86_64-unknown-linux-gnu) using BFD version (GNU Binutils) 2.43]
+        ignore line: [COMPILER_PATH=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/bin/]
+        ignore line: [LIBRARY_PATH=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_87b4c.dir/CMakeCXXCompilerABI.cpp.o' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_87b4c.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_0fa5d]
+        ignore line: [/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0fa5d.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/c++]
+        ignore line: [COLLECT_LTO_WRAPPER=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/lto-wrapper]
+        ignore line: [Target: x86_64-unknown-linux-gnu]
+        ignore line: [Configured with: ../gcc/configure --prefix=/local/workspace/build-any-ib/sw/2015/1/INSTALLROOT/cce2211895a8fc44eead8405b529a19c96b02ca0/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1 --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --enable-languages=c,c++,fortran --disable-multilib --enable-ld=default --enable-lto --disable-nls]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 14.2.0 (GCC) ]
+        ignore line: [COMPILER_PATH=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/bin/]
+        ignore line: [LIBRARY_PATH=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0fa5d' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_0fa5d.']
+        link line: [ /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/collect2 -plugin /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/liblto_plugin.so -plugin-opt=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccEfSISb.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_0fa5d /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtbegin.o -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0 -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../.. -v CMakeFiles/cmTC_0fa5d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtend.o /lib/../lib64/crtn.o]
+          arg [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccEfSISb.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_0fa5d] ==> ignore
+          arg [/lib/../lib64/crt1.o] ==> obj [/lib/../lib64/crt1.o]
+          arg [/lib/../lib64/crti.o] ==> obj [/lib/../lib64/crti.o]
+          arg [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtbegin.o] ==> obj [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtbegin.o]
+          arg [-L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0] ==> dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0]
+          arg [-L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc] ==> dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc]
+          arg [-L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64] ==> dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib] ==> dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib]
+          arg [-L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../..] ==> dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../..]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_0fa5d.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtend.o] ==> obj [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtend.o]
+          arg [/lib/../lib64/crtn.o] ==> obj [/lib/../lib64/crtn.o]
+        ignore line: [collect2 version 14.2.0]
+        ignore line: [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/bin/ld -plugin /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/liblto_plugin.so -plugin-opt=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccEfSISb.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_0fa5d /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtbegin.o -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0 -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../.. -v CMakeFiles/cmTC_0fa5d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtend.o /lib/../lib64/crtn.o]
+        linker tool for 'CXX': /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/bin/ld
+        collapse obj [/lib/../lib64/crt1.o] ==> [/lib64/crt1.o]
+        collapse obj [/lib/../lib64/crti.o] ==> [/lib64/crti.o]
+        collapse obj [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtbegin.o] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtbegin.o]
+        collapse obj [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtend.o] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtend.o]
+        collapse obj [/lib/../lib64/crtn.o] ==> [/lib64/crtn.o]
+        collapse library dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc/x86_64-unknown-linux-gnu/14.2.0]
+        collapse library dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc]
+        collapse library dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib64]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/x86_64-unknown-linux-gnu/lib]
+        collapse library dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../..] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib]
+        implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: [/lib64/crt1.o;/lib64/crti.o;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtbegin.o;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtend.o;/lib64/crtn.o]
+        implicit dirs: [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc/x86_64-unknown-linux-gnu/14.2.0;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib64;/lib64;/usr/lib64;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/x86_64-unknown-linux-gnu/lib;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/bin/ld" "-v"
+      GNU ld (GNU Binutils) 2.43
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/FindThreads.cmake:99 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/boost/v1.83.0-alice2-44/lib/cmake/boost_thread-1.83.0/boost_thread-config.cmake:118 (find_dependency)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/boost/v1.83.0-alice2-44/lib/cmake/boost_log-1.83.0/boost_log-config.cmake:102 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/boost/v1.83.0-alice2-44/lib/cmake/Boost-1.83.0/BoostConfig.cmake:141 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/boost/v1.83.0-alice2-44/lib/cmake/Boost-1.83.0/BoostConfig.cmake:262 (boost_find_component)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/FindBoost.cmake:610 (find_package)"
+      - "CMakeLists.txt:13 (find_package)"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-RGwGXb"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-RGwGXb"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2;/home/its/QC_QA_Team/sw/slc9_x86-64/ROOT/v6-32-06-alice9-3/cmake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-RGwGXb'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a366a/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_a366a.dir/build.make CMakeFiles/cmTC_a366a.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-RGwGXb'
+        Building CXX object CMakeFiles/cmTC_a366a.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu++17 -o CMakeFiles/cmTC_a366a.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-RGwGXb/src.cxx
+        Linking CXX executable cmTC_a366a
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a366a.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_a366a.dir/src.cxx.o -o cmTC_a366a
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-RGwGXb'
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:177 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test Vc_HAVE_SSE_SINCOS"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-TngtO7"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-TngtO7"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "Vc_HAVE_SSE_SINCOS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-TngtO7'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c13ca/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_c13ca.dir/build.make CMakeFiles/cmTC_c13ca.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-TngtO7'
+        Building CXX object CMakeFiles/cmTC_c13ca.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -DVc_HAVE_SSE_SINCOS  -std=gnu++17 -o CMakeFiles/cmTC_c13ca.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-TngtO7/src.cxx
+        Linking CXX executable cmTC_c13ca
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c13ca.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_c13ca.dir/src.cxx.o -o cmTC_c13ca  /usr/lib64/libmvec.so
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-TngtO7'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:190 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test Vc_HAVE_AVX_SINCOS"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-NDk9am"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-NDk9am"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "Vc_HAVE_AVX_SINCOS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-NDk9am'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_2cd44/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_2cd44.dir/build.make CMakeFiles/cmTC_2cd44.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-NDk9am'
+        Building CXX object CMakeFiles/cmTC_2cd44.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -DVc_HAVE_AVX_SINCOS  -std=gnu++17 -o CMakeFiles/cmTC_2cd44.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-NDk9am/src.cxx
+        /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-NDk9am/src.cxx: In function '__m256 f0(__m256)':
+        /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-NDk9am/src.cxx:10:21: warning: AVX vector return without AVX enabled changes the ABI [-Wpsabi]
+           10 | __m256  f0(__m256  x) { return _ZGVdN8v_cosf(_ZGVdN8v_sinf(x)); }
+              |                     ^
+        /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-NDk9am/src.cxx:10:9: note: the ABI for passing parameters with 32-byte alignment has changed in GCC 4.6
+           10 | __m256  f0(__m256  x) { return _ZGVdN8v_cosf(_ZGVdN8v_sinf(x)); }
+              |         ^~
+        /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-NDk9am/src.cxx:10:9: warning: AVX vector argument without AVX enabled changes the ABI [-Wpsabi]
+        Linking CXX executable cmTC_2cd44
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2cd44.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_2cd44.dir/src.cxx.o -o cmTC_2cd44  /usr/lib64/libmvec.so
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-NDk9am'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:143 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:272 (vc_add_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__Wabi"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-xYJUZw"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-xYJUZw"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__Wabi"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-xYJUZw'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4e19b/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4e19b.dir/build.make CMakeFiles/cmTC_4e19b.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-xYJUZw'
+        Building CXX object CMakeFiles/cmTC_4e19b.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__Wabi  -std=gnu++17   -Wabi -o CMakeFiles/cmTC_4e19b.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-xYJUZw/src.cxx
+        cc1plus: warning: '-Wabi' won't warn about anything [-Wabi]
+        cc1plus: note: '-Wabi' warns about differences from the most up-to-date ABI, which is also used by default
+        cc1plus: note: use e.g. '-Wabi=11' to warn about changes from GCC 7
+        Linking CXX executable cmTC_4e19b
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4e19b.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_4e19b.dir/src.cxx.o -o cmTC_4e19b
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-xYJUZw'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:143 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:273 (vc_add_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__fabi_version_0"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-hxoCfP"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-hxoCfP"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__fabi_version_0"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-hxoCfP'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_f5133/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_f5133.dir/build.make CMakeFiles/cmTC_f5133.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-hxoCfP'
+        Building CXX object CMakeFiles/cmTC_f5133.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__fabi_version_0  -std=gnu++17   -fabi-version=0 -o CMakeFiles/cmTC_f5133.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-hxoCfP/src.cxx
+        Linking CXX executable cmTC_f5133
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f5133.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_f5133.dir/src.cxx.o -o cmTC_f5133
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-hxoCfP'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:143 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:274 (vc_add_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__fabi_compat_version_0"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-jLmKuX"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-jLmKuX"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__fabi_compat_version_0"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-jLmKuX'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_e86e4/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_e86e4.dir/build.make CMakeFiles/cmTC_e86e4.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-jLmKuX'
+        Building CXX object CMakeFiles/cmTC_e86e4.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__fabi_compat_version_0  -std=gnu++17   -fabi-compat-version=0 -o CMakeFiles/cmTC_e86e4.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-jLmKuX/src.cxx
+        Linking CXX executable cmTC_e86e4
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e86e4.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_e86e4.dir/src.cxx.o -o cmTC_e86e4
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-jLmKuX'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:143 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:360 (vc_add_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__ffp_contract_fast"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-DAcejW"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-DAcejW"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__ffp_contract_fast"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-DAcejW'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_efd11/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_efd11.dir/build.make CMakeFiles/cmTC_efd11.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-DAcejW'
+        Building CXX object CMakeFiles/cmTC_efd11.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__ffp_contract_fast  -std=gnu++17   -ffp-contract=fast -o CMakeFiles/cmTC_efd11.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-DAcejW/src.cxx
+        Linking CXX executable cmTC_efd11
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_efd11.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_efd11.dir/src.cxx.o -o cmTC_efd11
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-DAcejW'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:566 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__march_ivybridge"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-O3rZs7"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-O3rZs7"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__march_ivybridge"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-O3rZs7'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5e91c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_5e91c.dir/build.make CMakeFiles/cmTC_5e91c.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-O3rZs7'
+        Building CXX object CMakeFiles/cmTC_5e91c.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__march_ivybridge  -std=gnu++17   -march=ivybridge -o CMakeFiles/cmTC_5e91c.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-O3rZs7/src.cxx
+        Linking CXX executable cmTC_5e91c
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5e91c.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_5e91c.dir/src.cxx.o -o cmTC_5e91c
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-O3rZs7'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:572 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__msse2"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-x39KsX"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-x39KsX"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__msse2"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-x39KsX'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_59c36/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_59c36.dir/build.make CMakeFiles/cmTC_59c36.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-x39KsX'
+        Building CXX object CMakeFiles/cmTC_59c36.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__msse2  -std=gnu++17   -msse2 -o CMakeFiles/cmTC_59c36.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-x39KsX/src.cxx
+        Linking CXX executable cmTC_59c36
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59c36.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_59c36.dir/src.cxx.o -o cmTC_59c36
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-x39KsX'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:572 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__msse3"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-N1Edrj"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-N1Edrj"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__msse3"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-N1Edrj'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4678c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4678c.dir/build.make CMakeFiles/cmTC_4678c.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-N1Edrj'
+        Building CXX object CMakeFiles/cmTC_4678c.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__msse3  -std=gnu++17   -msse3 -o CMakeFiles/cmTC_4678c.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-N1Edrj/src.cxx
+        Linking CXX executable cmTC_4678c
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4678c.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_4678c.dir/src.cxx.o -o cmTC_4678c
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-N1Edrj'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckIncludeFileCXX.cmake:98 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:597 (CHECK_INCLUDE_FILE_CXX)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Looking for C++ include pmmintrin.h"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-FyYcMp"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-FyYcMp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -msse3"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "HAVE_pmmintrin_h"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-FyYcMp'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4f573/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4f573.dir/build.make CMakeFiles/cmTC_4f573.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-FyYcMp'
+        Building CXX object CMakeFiles/cmTC_4f573.dir/CheckIncludeFile.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++   -msse3  -std=gnu++17 -o CMakeFiles/cmTC_4f573.dir/CheckIncludeFile.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-FyYcMp/CheckIncludeFile.cxx
+        Linking CXX executable cmTC_4f573
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4f573.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++  -msse3  CMakeFiles/cmTC_4f573.dir/CheckIncludeFile.cxx.o -o cmTC_4f573
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-FyYcMp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:572 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mssse3"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-0bxoZd"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-0bxoZd"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mssse3"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-0bxoZd'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_d67b1/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_d67b1.dir/build.make CMakeFiles/cmTC_d67b1.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-0bxoZd'
+        Building CXX object CMakeFiles/cmTC_d67b1.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mssse3  -std=gnu++17   -mssse3 -o CMakeFiles/cmTC_d67b1.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-0bxoZd/src.cxx
+        Linking CXX executable cmTC_d67b1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d67b1.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_d67b1.dir/src.cxx.o -o cmTC_d67b1
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-0bxoZd'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckIncludeFileCXX.cmake:98 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:597 (CHECK_INCLUDE_FILE_CXX)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Looking for C++ include tmmintrin.h"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-6OU4Op"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-6OU4Op"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -mssse3"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "HAVE_tmmintrin_h"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-6OU4Op'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_022a4/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_022a4.dir/build.make CMakeFiles/cmTC_022a4.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-6OU4Op'
+        Building CXX object CMakeFiles/cmTC_022a4.dir/CheckIncludeFile.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++   -mssse3  -std=gnu++17 -o CMakeFiles/cmTC_022a4.dir/CheckIncludeFile.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-6OU4Op/CheckIncludeFile.cxx
+        Linking CXX executable cmTC_022a4
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_022a4.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++  -mssse3  CMakeFiles/cmTC_022a4.dir/CheckIncludeFile.cxx.o -o cmTC_022a4
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-6OU4Op'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:572 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__msse4_1"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-0pOemr"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-0pOemr"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__msse4_1"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-0pOemr'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_65b41/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_65b41.dir/build.make CMakeFiles/cmTC_65b41.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-0pOemr'
+        Building CXX object CMakeFiles/cmTC_65b41.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__msse4_1  -std=gnu++17   -msse4.1 -o CMakeFiles/cmTC_65b41.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-0pOemr/src.cxx
+        Linking CXX executable cmTC_65b41
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65b41.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_65b41.dir/src.cxx.o -o cmTC_65b41
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-0pOemr'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckIncludeFileCXX.cmake:98 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:597 (CHECK_INCLUDE_FILE_CXX)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Looking for C++ include smmintrin.h"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-nLEaJp"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-nLEaJp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -msse4.1"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "HAVE_smmintrin_h"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-nLEaJp'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_14690/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_14690.dir/build.make CMakeFiles/cmTC_14690.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-nLEaJp'
+        Building CXX object CMakeFiles/cmTC_14690.dir/CheckIncludeFile.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++   -msse4.1  -std=gnu++17 -o CMakeFiles/cmTC_14690.dir/CheckIncludeFile.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-nLEaJp/CheckIncludeFile.cxx
+        Linking CXX executable cmTC_14690
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_14690.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++  -msse4.1  CMakeFiles/cmTC_14690.dir/CheckIncludeFile.cxx.o -o cmTC_14690
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-nLEaJp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:572 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__msse4_2"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-TvWWgA"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-TvWWgA"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__msse4_2"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-TvWWgA'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_acba9/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_acba9.dir/build.make CMakeFiles/cmTC_acba9.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-TvWWgA'
+        Building CXX object CMakeFiles/cmTC_acba9.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__msse4_2  -std=gnu++17   -msse4.2 -o CMakeFiles/cmTC_acba9.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-TvWWgA/src.cxx
+        Linking CXX executable cmTC_acba9
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_acba9.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_acba9.dir/src.cxx.o -o cmTC_acba9
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-TvWWgA'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:572 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mavx"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-ZHoIPk"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-ZHoIPk"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mavx"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-ZHoIPk'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_cd288/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_cd288.dir/build.make CMakeFiles/cmTC_cd288.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-ZHoIPk'
+        Building CXX object CMakeFiles/cmTC_cd288.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mavx  -std=gnu++17   -mavx -o CMakeFiles/cmTC_cd288.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-ZHoIPk/src.cxx
+        Linking CXX executable cmTC_cd288
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd288.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_cd288.dir/src.cxx.o -o cmTC_cd288
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-ZHoIPk'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckIncludeFileCXX.cmake:98 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:597 (CHECK_INCLUDE_FILE_CXX)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Looking for C++ include immintrin.h"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-4awVEu"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-4awVEu"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -mavx"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "HAVE_immintrin_h"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-4awVEu'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_1641e/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_1641e.dir/build.make CMakeFiles/cmTC_1641e.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-4awVEu'
+        Building CXX object CMakeFiles/cmTC_1641e.dir/CheckIncludeFile.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++   -mavx  -std=gnu++17 -o CMakeFiles/cmTC_1641e.dir/CheckIncludeFile.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-4awVEu/CheckIncludeFile.cxx
+        Linking CXX executable cmTC_1641e
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1641e.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++  -mavx  CMakeFiles/cmTC_1641e.dir/CheckIncludeFile.cxx.o -o cmTC_1641e
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-4awVEu'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_sse4a"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-u17XYq"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-u17XYq"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_sse4a"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-u17XYq'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_6aa0c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_6aa0c.dir/build.make CMakeFiles/cmTC_6aa0c.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-u17XYq'
+        Building CXX object CMakeFiles/cmTC_6aa0c.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_sse4a  -std=gnu++17   -mno-sse4a -o CMakeFiles/cmTC_6aa0c.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-u17XYq/src.cxx
+        Linking CXX executable cmTC_6aa0c
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6aa0c.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_6aa0c.dir/src.cxx.o -o cmTC_6aa0c
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-u17XYq'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_fma"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-ZIBXfK"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-ZIBXfK"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_fma"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-ZIBXfK'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_d031f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_d031f.dir/build.make CMakeFiles/cmTC_d031f.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-ZIBXfK'
+        Building CXX object CMakeFiles/cmTC_d031f.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_fma  -std=gnu++17   -mno-fma -o CMakeFiles/cmTC_d031f.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-ZIBXfK/src.cxx
+        Linking CXX executable cmTC_d031f
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d031f.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_d031f.dir/src.cxx.o -o cmTC_d031f
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-ZIBXfK'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_bmi2"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-rJak42"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-rJak42"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_bmi2"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-rJak42'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_fd4a3/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_fd4a3.dir/build.make CMakeFiles/cmTC_fd4a3.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-rJak42'
+        Building CXX object CMakeFiles/cmTC_fd4a3.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_bmi2  -std=gnu++17   -mno-bmi2 -o CMakeFiles/cmTC_fd4a3.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-rJak42/src.cxx
+        Linking CXX executable cmTC_fd4a3
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd4a3.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_fd4a3.dir/src.cxx.o -o cmTC_fd4a3
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-rJak42'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_avx2"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-eD1vWC"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-eD1vWC"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_avx2"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-eD1vWC'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_b3a3c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_b3a3c.dir/build.make CMakeFiles/cmTC_b3a3c.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-eD1vWC'
+        Building CXX object CMakeFiles/cmTC_b3a3c.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_avx2  -std=gnu++17   -mno-avx2 -o CMakeFiles/cmTC_b3a3c.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-eD1vWC/src.cxx
+        Linking CXX executable cmTC_b3a3c
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b3a3c.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_b3a3c.dir/src.cxx.o -o cmTC_b3a3c
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-eD1vWC'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_xop"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-LnoM5c"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-LnoM5c"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_xop"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-LnoM5c'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_dc2a7/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_dc2a7.dir/build.make CMakeFiles/cmTC_dc2a7.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-LnoM5c'
+        Building CXX object CMakeFiles/cmTC_dc2a7.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_xop  -std=gnu++17   -mno-xop -o CMakeFiles/cmTC_dc2a7.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-LnoM5c/src.cxx
+        Linking CXX executable cmTC_dc2a7
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dc2a7.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_dc2a7.dir/src.cxx.o -o cmTC_dc2a7
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-LnoM5c'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_fma4"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-qGx8Ot"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-qGx8Ot"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_fma4"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-qGx8Ot'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_94231/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_94231.dir/build.make CMakeFiles/cmTC_94231.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-qGx8Ot'
+        Building CXX object CMakeFiles/cmTC_94231.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_fma4  -std=gnu++17   -mno-fma4 -o CMakeFiles/cmTC_94231.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-qGx8Ot/src.cxx
+        Linking CXX executable cmTC_94231
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_94231.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_94231.dir/src.cxx.o -o cmTC_94231
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-qGx8Ot'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_avx512f"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-xY6rVX"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-xY6rVX"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_avx512f"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-xY6rVX'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_90732/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_90732.dir/build.make CMakeFiles/cmTC_90732.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-xY6rVX'
+        Building CXX object CMakeFiles/cmTC_90732.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_avx512f  -std=gnu++17   -mno-avx512f -o CMakeFiles/cmTC_90732.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-xY6rVX/src.cxx
+        Linking CXX executable cmTC_90732
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_90732.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_90732.dir/src.cxx.o -o cmTC_90732
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-xY6rVX'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_avx512vl"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-9z8ARr"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-9z8ARr"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_avx512vl"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-9z8ARr'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_436ee/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_436ee.dir/build.make CMakeFiles/cmTC_436ee.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-9z8ARr'
+        Building CXX object CMakeFiles/cmTC_436ee.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_avx512vl  -std=gnu++17   -mno-avx512vl -o CMakeFiles/cmTC_436ee.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-9z8ARr/src.cxx
+        Linking CXX executable cmTC_436ee
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_436ee.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_436ee.dir/src.cxx.o -o cmTC_436ee
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-9z8ARr'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_avx512pf"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-DU0Sqn"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-DU0Sqn"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_avx512pf"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-DU0Sqn'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_8e6fe/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_8e6fe.dir/build.make CMakeFiles/cmTC_8e6fe.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-DU0Sqn'
+        Building CXX object CMakeFiles/cmTC_8e6fe.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_avx512pf  -std=gnu++17   -mno-avx512pf -o CMakeFiles/cmTC_8e6fe.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-DU0Sqn/src.cxx
+        c++: warning: AVX512PF support will be removed in GCC 15
+        cc1plus: warning: AVX512PF support will be removed in GCC 15
+        Linking CXX executable cmTC_8e6fe
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8e6fe.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_8e6fe.dir/src.cxx.o -o cmTC_8e6fe
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-DU0Sqn'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_avx512er"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-QJuoTT"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-QJuoTT"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_avx512er"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-QJuoTT'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5620b/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_5620b.dir/build.make CMakeFiles/cmTC_5620b.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-QJuoTT'
+        Building CXX object CMakeFiles/cmTC_5620b.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_avx512er  -std=gnu++17   -mno-avx512er -o CMakeFiles/cmTC_5620b.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-QJuoTT/src.cxx
+        c++: warning: AVX512ER support will be removed in GCC 15
+        cc1plus: warning: AVX512ER support will be removed in GCC 15
+        Linking CXX executable cmTC_5620b
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5620b.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_5620b.dir/src.cxx.o -o cmTC_5620b
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-QJuoTT'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_avx512cd"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-8xXS3M"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-8xXS3M"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_avx512cd"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-8xXS3M'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_48c2a/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_48c2a.dir/build.make CMakeFiles/cmTC_48c2a.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-8xXS3M'
+        Building CXX object CMakeFiles/cmTC_48c2a.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_avx512cd  -std=gnu++17   -mno-avx512cd -o CMakeFiles/cmTC_48c2a.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-8xXS3M/src.cxx
+        Linking CXX executable cmTC_48c2a
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_48c2a.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_48c2a.dir/src.cxx.o -o cmTC_48c2a
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-8xXS3M'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_avx512dq"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-9iEge0"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-9iEge0"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_avx512dq"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-9iEge0'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a527a/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_a527a.dir/build.make CMakeFiles/cmTC_a527a.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-9iEge0'
+        Building CXX object CMakeFiles/cmTC_a527a.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_avx512dq  -std=gnu++17   -mno-avx512dq -o CMakeFiles/cmTC_a527a.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-9iEge0/src.cxx
+        Linking CXX executable cmTC_a527a
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a527a.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_a527a.dir/src.cxx.o -o cmTC_a527a
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-9iEge0'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_avx512bw"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-uca40S"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-uca40S"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_avx512bw"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-uca40S'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_cc125/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_cc125.dir/build.make CMakeFiles/cmTC_cc125.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-uca40S'
+        Building CXX object CMakeFiles/cmTC_cc125.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_avx512bw  -std=gnu++17   -mno-avx512bw -o CMakeFiles/cmTC_cc125.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-uca40S/src.cxx
+        Linking CXX executable cmTC_cc125
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc125.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_cc125.dir/src.cxx.o -o cmTC_cc125
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-uca40S'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_avx512ifma"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-JKUZUi"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-JKUZUi"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_avx512ifma"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-JKUZUi'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4f580/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4f580.dir/build.make CMakeFiles/cmTC_4f580.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-JKUZUi'
+        Building CXX object CMakeFiles/cmTC_4f580.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_avx512ifma  -std=gnu++17   -mno-avx512ifma -o CMakeFiles/cmTC_4f580.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-JKUZUi/src.cxx
+        Linking CXX executable cmTC_4f580
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4f580.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_4f580.dir/src.cxx.o -o cmTC_4f580
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-JKUZUi'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/CheckCXXCompilerFlag.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/AddCompilerFlag.cmake:112 (check_cxx_compiler_flag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:613 (AddCompilerFlag)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/OptimizeForArchitecture.cmake:217 (OptimizeForArchitectureX86)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcMacros.cmake:363 (OptimizeForArchitecture)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc/VcConfig.cmake:41 (vc_set_preferred_compiler_flags)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:75 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Performing Test check_cxx_compiler_flag__mno_avx512vbmi"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-myajho"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-myajho"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc"
+    buildResult:
+      variable: "check_cxx_compiler_flag__mno_avx512vbmi"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-myajho'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0d259/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_0d259.dir/build.make CMakeFiles/cmTC_0d259.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-myajho'
+        Building CXX object CMakeFiles/cmTC_0d259.dir/src.cxx.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ -Dcheck_cxx_compiler_flag__mno_avx512vbmi  -std=gnu++17   -mno-avx512vbmi -o CMakeFiles/cmTC_0d259.dir/src.cxx.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-myajho/src.cxx
+        Linking CXX executable cmTC_0d259
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0d259.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++ CMakeFiles/cmTC_0d259.dir/src.cxx.o -o cmTC_0d259
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-myajho'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/FindOpenMP.cmake:252 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/FindOpenMP.cmake:522 (_OPENMP_GET_FLAGS)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:174 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    description: "Detecting CXX OpenMP compiler info"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-IWIDdA"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-IWIDdA"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/FairMQ/v1.10.0-3/share/fairmq/cmake;/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc;/home/its/QC_QA_Team/sw/slc9_x86-64/ROOT/v6-32-06-alice9-3/cmake/modules"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_CXX_fopenmp"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-IWIDdA'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_2b336/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_2b336.dir/build.make CMakeFiles/cmTC_2b336.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-IWIDdA'
+        Building CXX object CMakeFiles/cmTC_2b336.dir/OpenMPTryFlag.cpp.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++   -fopenmp -std=gnu++17 -o CMakeFiles/cmTC_2b336.dir/OpenMPTryFlag.cpp.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-IWIDdA/OpenMPTryFlag.cpp
+        Linking CXX executable cmTC_2b336
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2b336.dir/link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/c++
+        COLLECT_LTO_WRAPPER=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/lto-wrapper
+        Target: x86_64-unknown-linux-gnu
+        Configured with: ../gcc/configure --prefix=/local/workspace/build-any-ib/sw/2015/1/INSTALLROOT/cce2211895a8fc44eead8405b529a19c96b02ca0/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1 --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --enable-languages=c,c++,fortran --disable-multilib --enable-ld=default --enable-lto --disable-nls
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 14.2.0 (GCC) 
+        COMPILER_PATH=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/bin/
+        LIBRARY_PATH=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../:/lib/:/usr/lib/
+        Reading specs from /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64/libgomp.spec
+        COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_2b336' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread' '-dumpdir' 'cmTC_2b336.'
+         /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/collect2 -plugin /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/liblto_plugin.so -plugin-opt=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccHE0aUM.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_2b336 /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtbegin.o -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0 -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../.. CMakeFiles/cmTC_2b336.dir/OpenMPTryFlag.cpp.o -lstdc++ -lm -lgomp -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtend.o /lib/../lib64/crtn.o
+        COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_2b336' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread' '-dumpdir' 'cmTC_2b336.'
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++  -fopenmp -v CMakeFiles/cmTC_2b336.dir/OpenMPTryFlag.cpp.o -o cmTC_2b336
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-IWIDdA'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/FindOpenMP.cmake:296 (message)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/FindOpenMP.cmake:522 (_OPENMP_GET_FLAGS)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:174 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    message: |
+      Parsed CXX OpenMP implicit link information from above output:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-IWIDdA']
+        ignore line: []
+        ignore line: [Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_2b336/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_2b336.dir/build.make CMakeFiles/cmTC_2b336.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-IWIDdA']
+        ignore line: [Building CXX object CMakeFiles/cmTC_2b336.dir/OpenMPTryFlag.cpp.o]
+        ignore line: [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++   -fopenmp -std=gnu++17 -o CMakeFiles/cmTC_2b336.dir/OpenMPTryFlag.cpp.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-IWIDdA/OpenMPTryFlag.cpp]
+        ignore line: [Linking CXX executable cmTC_2b336]
+        ignore line: [/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2b336.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/c++]
+        ignore line: [COLLECT_LTO_WRAPPER=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/lto-wrapper]
+        ignore line: [Target: x86_64-unknown-linux-gnu]
+        ignore line: [Configured with: ../gcc/configure --prefix=/local/workspace/build-any-ib/sw/2015/1/INSTALLROOT/cce2211895a8fc44eead8405b529a19c96b02ca0/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1 --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --enable-languages=c,c++,fortran --disable-multilib --enable-ld=default --enable-lto --disable-nls]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 14.2.0 (GCC) ]
+        ignore line: [COMPILER_PATH=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/bin/]
+        ignore line: [LIBRARY_PATH=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib/:/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../:/lib/:/usr/lib/]
+        ignore line: [Reading specs from /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64/libgomp.spec]
+        ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-v' '-o' 'cmTC_2b336' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread' '-dumpdir' 'cmTC_2b336.']
+        link line: [ /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/collect2 -plugin /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/liblto_plugin.so -plugin-opt=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccHE0aUM.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_2b336 /lib/../lib64/crt1.o /lib/../lib64/crti.o /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtbegin.o -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0 -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib -L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../.. CMakeFiles/cmTC_2b336.dir/OpenMPTryFlag.cpp.o -lstdc++ -lm -lgomp -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/crtend.o /lib/../lib64/crtn.o]
+          arg [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/14.2.0/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccHE0aUM.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_2b336] ==> ignore
+          arg [-L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0] ==> dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0]
+          arg [-L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc] ==> dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc]
+          arg [-L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64] ==> dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib] ==> dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib]
+          arg [-L/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../..] ==> dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../..]
+          arg [CMakeFiles/cmTC_2b336.dir/OpenMPTryFlag.cpp.o] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgomp] ==> lib [gomp]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lpthread] ==> lib [pthread]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+        collapse library dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc/x86_64-unknown-linux-gnu/14.2.0]
+        collapse library dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc]
+        collapse library dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../lib64] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib64]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../../../x86_64-unknown-linux-gnu/lib] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/x86_64-unknown-linux-gnu/lib]
+        collapse library dir [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/bin/../lib/gcc/x86_64-unknown-linux-gnu/14.2.0/../../..] ==> [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib]
+        implicit libs: [stdc++;m;gomp;gcc_s;gcc;pthread;c;gcc_s;gcc]
+        implicit objs: []
+        implicit dirs: [/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc/x86_64-unknown-linux-gnu/14.2.0;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib/gcc;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib64;/lib64;/usr/lib64;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/x86_64-unknown-linux-gnu/lib;/home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/FindOpenMP.cmake:456 (try_compile)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/share/cmake-3.31/Modules/FindOpenMP.cmake:596 (_OPENMP_GET_SPEC_DATE)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Dependencies.cmake:174 (find_package)"
+      - "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5/lib/cmake/O2/O2Config.cmake:12 (include)"
+      - "CMakeLists.txt:17 (find_package)"
+    description: "Detecting CXX OpenMP version"
+    directories:
+      source: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-CLzMfV"
+      binary: "/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-CLzMfV"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/its/QC_QA_Team/sw/slc9_x86-64/FairMQ/v1.10.0-3/share/fairmq/cmake;/home/its/QC_QA_Team/sw/slc9_x86-64/arrow/v20.0.0-alice1-2/lib/cmake/Gandiva;/home/its/QC_QA_Team/sw/slc9_x86-64/Vc/1.4.5-5/lib/cmake/Vc;/home/its/QC_QA_Team/sw/slc9_x86-64/ROOT/v6-32-06-alice9-3/cmake/modules"
+    buildResult:
+      variable: "OpenMP_SPECTEST_CXX_"
+      cached: true
+      stdout: |
+        Change Dir: '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-CLzMfV'
+        
+        Run Build Command(s): /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5329b/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_5329b.dir/build.make CMakeFiles/cmTC_5329b.dir/build
+        gmake[1]: Entering directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-CLzMfV'
+        Building CXX object CMakeFiles/cmTC_5329b.dir/OpenMPCheckVersion.cpp.o
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++   -fopenmp -std=gnu++17 -o CMakeFiles/cmTC_5329b.dir/OpenMPCheckVersion.cpp.o -c /home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-CLzMfV/OpenMPCheckVersion.cpp
+        Linking CXX executable cmTC_5329b
+        /home/its/QC_QA_Team/sw/slc9_x86-64/CMake/v3.31.6-3/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5329b.dir/link.txt --verbose=1
+        /home/its/QC_QA_Team/sw/slc9_x86-64/GCC-Toolchain/v14.2.0-alice2-1/libexec/ccache/bin/c++  -fopenmp CMakeFiles/cmTC_5329b.dir/OpenMPCheckVersion.cpp.o -o cmTC_5329b
+        gmake[1]: Leaving directory '/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/CMakeScratch/TryCompile-CLzMfV'
+        
+      exitCode: 0
+...

@@ -8,7 +8,7 @@ class ITSGeometry {
 public:
     ITSGeometry(){
         for (int i=0; i<N_LANES; i++) getlanecoordinates(i);
-    };  // fills lookup tables in ctor, not lazily via free function -> [AID to-do]
+    };  
 
     uint16_t  isFirstOfLane(uint16_t chipid);
     uint16_t StaveToLayer(uint16_t stv) const;

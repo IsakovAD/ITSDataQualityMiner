@@ -1,6 +1,5 @@
 #include "TPDF.h"
 #include <fstream>
-#include <TString.h>
 #include <vector>
 #include <string>   
 
@@ -35,21 +34,27 @@ struct Period {
 class DataQualityProcessor{
 
     public:
-    DataQualityProcessor(string dataBaseType = "qc_async", string ccdb_port = "ali-qcdb-gpn.cern.ch:8083", string apass = "none"){
+    DataQualityProcessor(string dataBaseType = "qc_async", string ccdb_port = "ali-qcdb-gpn.cern.ch:8083", string apass = "none", string in_path = "../inputs", string out_path = "../downloads"){
+
+
         std::cout<<"Initializing DataQualityProcessor with db type: "<< dataBaseType << " and port: "<< ccdb_port <<std::endl;
         myGeo = new ITSGeometry();
         myDecoder = new DeadMapDecoder(*myGeo);
         myCCDBServer = new CCDBServer(dataBaseType, ccdb_port, apass);
+        inputPath=in_path;
+        outputPath=out_path;
+
         std::cout<<"Initialization complete."<<std::endl;
     };
-    int download_runs_mw(TString data_path);
-    std::vector <TString> getRuns (TString path);
+    int download_runs_mw();
+    std::vector <string> getRuns (string path);
 
 
     private: 
-    void process_run(TString inputRun, TString path, TString pass);
+    void process_run(string inputRun, string path, string pass);
     void process_period(Period input);
-
+    string inputPath;
+    string outputPath;  
 
 
     

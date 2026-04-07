@@ -3,7 +3,7 @@
 //mGeo;
 DeadMapDecoder::DeadMapDecoder(const ITSGeometry& geo) : mGeo(geo){};
 
-std::vector<uint16_t>  DeadMapDecoder::expandvector(std::vector<uint16_t> words, std::string version, TString opt = "lane"){
+std::vector<uint16_t>  DeadMapDecoder::expandvector(std::vector<uint16_t> words, std::string version, string opt = "lane"){
 
   //std::cout<<" we are expanding "<<std::endl; 
   std::vector<uint16_t> elementlist{};
@@ -95,7 +95,7 @@ std::vector<uint16_t>  DeadMapDecoder::expandvector(std::vector<uint16_t> words,
 }
 
 
-std::vector<DeadStave> DeadMapDecoder::analysis(int run, TString path){
+std::vector<DeadStave> DeadMapDecoder::analysis(int run, string path){
 
       std::vector<DeadStave> vLongShutdowns;
       // for (int i=0; i<mGeo.N_LANES; i++){
@@ -200,7 +200,7 @@ std::vector<DeadStave> DeadMapDecoder::analysis(int run, TString path){
     // }
 
 
-  std::ofstream fOut(Form("%s/output.txt",path.Data()), std::ios::app);
+  std::ofstream fOut(Form("%s/output.txt",path.c_str()), std::ios::app);
     for (auto shutdown: vLongShutdowns){
       int layer = mGeo.StaveToLayer(shutdown.Stave);
       fOut<<"Run"<< run<<" L"<< layer<<"_"<< shutdown.Stave - mGeo.StaveBoundary[layer] << " with duration: "<< (shutdown.End-shutdown.Begin)/100 << " begin: "<<shutdown.Begin << " end "<< shutdown.End  <<std::endl;

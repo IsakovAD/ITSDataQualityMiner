@@ -28,7 +28,6 @@ void ITSGeometry::getlanecoordinates(int laneid) { //[AID] shouldn't it be in co
   for (int l=0; l<7; l++) stave += (l<layer)*NStaves[l]+(l==layer)*staveinlayer;
 
   vLaneToStave[laneid] = stave;
-  //std::cout<<"laneid = "<< laneid << " corresponds to stave: "<< stave <<std::endl;
   vLaneToStaveInLayer[laneid] = staveinlayer;
 
 }  
