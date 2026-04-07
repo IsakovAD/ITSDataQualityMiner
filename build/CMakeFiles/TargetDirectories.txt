@@ -1,8 +1,0 @@
-/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/ITSDataQualityMinerLib.dir
-/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/its-dqm.dir
-/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/edit_cache.dir
-/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/rebuild_cache.dir
-/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/list_install_components.dir
-/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/install.dir
-/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/install/local.dir
-/home/its/QC_QA_Team/A_Isakov/dev/ITSDataQualityMiner/build/CMakeFiles/install/strip.dir
