@@ -3,12 +3,12 @@
 #include <TH2.h>
 #include <TSystem.h>
 
+using namespace std;
 
 
 TH1* CCDBServer::downloadObject(string RunNumber, string PassName, string timestamp, string fullPath, string ObjectType){
 
-    TH1 *out = NULL;
-
+    TH1 *out = nullptr ;
     fullPath = dataBaseType + fullPath;
     
     if (timestamp.size() < 2) return out; 
@@ -60,12 +60,10 @@ vector<string> CCDBServer::getTimeStamps(string objectName, string targetRun, st
        ss>>word;
        ss>>word;
       periodName = word;
-      if (runnumber==targetRun)
-          cout<<"Printing Perioid name "<<periodName << "pass="<<pass<< " timestamp "<< timestamp<< " run: "<< runnumber<< endl;
        
        if (runnumber==targetRun && pass==targetPass ){
-	          cout<<"Found Perioid name "<<periodName  << "pass="<<pass << " timestamp "<< timestamp<< " run: "<< runnumber<< endl;
-		out_map.push_back(timestamp);
+	         cout<<"Found Period name "<<periodName  << "pass="<<pass << " timestamp "<< timestamp<< " run: "<< runnumber<< endl;
+		      out_map.push_back(timestamp);
        }
     }
   }

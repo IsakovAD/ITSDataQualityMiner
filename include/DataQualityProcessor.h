@@ -1,3 +1,4 @@
+#pragma once
 #include "TPDF.h"
 #include <fstream>
 #include <vector>
@@ -8,14 +9,13 @@
 #include "CCDBServer.h"
 
 
-using namespace std;
 
 struct Period {
-  string name;
+  std::string name;
   float energy;
-  string collision_system;
-  string pass;
-  Period(string input){
+  std::string collision_system;
+  std::string pass;
+  Period(std::string input){
 
         std::stringstream ss(input);
         std::string token;
@@ -34,35 +34,35 @@ struct Period {
 class DataQualityProcessor{
 
     public:
-    DataQualityProcessor(string dataBaseType = "qc_async", string ccdb_port = "ali-qcdb-gpn.cern.ch:8083", string apass = "none", string in_path = "../inputs", string out_path = "../downloads"){
+    DataQualityProcessor(std::string dataBaseType = "qc_async", std::string ccdb_port = "ali-qcdb-gpn.cern.ch:8083", std::string apass = "none", std::string in_path = "../inputs", std::string out_path = "../downloads"){
 
 
         std::cout<<"Initializing DataQualityProcessor with db type: "<< dataBaseType << " and port: "<< ccdb_port <<std::endl;
-        myGeo = new ITSGeometry();
-        myDecoder = new DeadMapDecoder(*myGeo);
-        myCCDBServer = new CCDBServer(dataBaseType, ccdb_port, apass);
+        myGeo =  std::make_unique<ITSGeometry>(); 
+        myDecoder =  std::make_unique<DeadMapDecoder>(*myGeo);
+        myCCDBServer = std::make_unique<CCDBServer>(dataBaseType, ccdb_port, apass);
         inputPath=in_path;
         outputPath=out_path;
 
         std::cout<<"Initialization complete."<<std::endl;
     };
     int download_runs_mw();
-    std::vector <string> getRuns (string path);
+    std::vector <std::string> getRuns (std::string path);
 
 
     private: 
-    void process_run(string inputRun, string path, string pass);
+    void process_run(std::string inputRun, std::string path, std::string pass);
     void process_period(Period input);
-    string inputPath;
-    string outputPath;  
+    std::string inputPath;
+    std::string outputPath;  
 
 
     
-DeadMapDecoder *myDecoder;
-ITSGeometry *myGeo;
-CCDBServer *myCCDBServer;
+std::unique_ptr<DeadMapDecoder>  myDecoder;
+std::unique_ptr<ITSGeometry> myGeo;
+std::unique_ptr<CCDBServer> myCCDBServer;
 
-vector <std::pair<string,string>> inputs= {
+std::vector <std::pair<std::string,std::string>> inputs= {
 
 	  {"/ITS/MO/Clusters/mw/Layer0/ClusterOccupation", "TH2"},
      {"/ITS/MO/Clusters/mw/Layer1/ClusterOccupation", "TH2"},

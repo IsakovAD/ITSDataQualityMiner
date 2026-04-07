@@ -15,6 +15,7 @@
 
 
 #include "DataQualityProcessor.h"
+using namespace std;
 
 
 
@@ -23,11 +24,13 @@ std::vector <string> DataQualityProcessor::getRuns (string path){
     std::ifstream infile(path.c_str());
     std::vector <string> out;
     string in,str;
-   
-   while(std::getline(infile, str)){
-     in = str.substr(0,6); //TO-DO: smarter way to get run number, e.g. via regex
-     out.push_back((string)in);
+
+
+    while(std::getline(infile, str)){    
+     str.erase(str.find_last_not_of(" \t\r\n") + 1);
+     out.push_back(str);
    }
+       std::cout<<"From file: "<< path << " we got " << out.size() << " runs" <<std::endl;
     return out;
 
 }
@@ -45,8 +48,8 @@ void DataQualityProcessor::process_run(string inputRun, string path, string pass
   vector<DeadStave> ShutDowns = myDecoder->analysis(stol(inputRun.c_str()),path);
   
   if (ShutDowns.size()==0) return;
-
-  TFile *fOut = new TFile(Form("%s/fout_mw_%s.root",path.c_str(),inputRun.c_str()),"RECREATE");
+string file_name = path + "/fout_mw_" + inputRun + ".root";
+TFile *fOut = new TFile( file_name.c_str() ,"RECREATE");
 
 
   string status = "";
@@ -60,16 +63,27 @@ void DataQualityProcessor::process_run(string inputRun, string path, string pass
 
 
 	for (string timestamp: timestamp_map){
+            long ts = -1;
+            try {
+                 ts = stol(timestamp);
+            } catch (const std::invalid_argument& e) {
+                std::cerr << "Invalid timestamp: " << timestamp << "\n";
+                continue;
+            }
+
+
             iTimestamp++;
             int stave=-1;
+            previous_timestamp_state=0;
             for (auto DeadStave: ShutDowns){
               std::cout<<"------------------- new check"<<std::endl;
-              cout<<" Duration (min):"<<  (DeadStave.End - DeadStave.Begin)/(60*1000.) <<"From : "<< DeadStave.Begin << " to "<< DeadStave.End << " timestamp: "<< stol(timestamp) << "("<< stol(timestamp)-DeadStave.Begin << ";"<< DeadStave.End-stol(timestamp)<<") DeadStave.Stave= "<< DeadStave.Stave<<endl;
+              if (stave!=DeadStave.Stave) previous_timestamp_state=0; //resetting state for new stave
+              cout<<" Duration (min):"<<  (DeadStave.End - DeadStave.Begin)/(60*1000.) <<"From : "<< DeadStave.Begin << " to "<< DeadStave.End << " timestamp: "<< ts << "("<< ts-DeadStave.Begin << ";"<< DeadStave.End-ts<<") DeadStave.Stave= "<< DeadStave.Stave<<endl;
               
-              bool PeriodFullyIncluded = stol(timestamp) > DeadStave.Begin && stol(timestamp) < DeadStave.End;
+              bool PeriodFullyIncluded = ts > DeadStave.Begin && ts < DeadStave.End;
               
-              int isEarly =stol(timestamp)-DeadStave.Begin <0  ? -1 : 1;
-              int isLate = DeadStave.End-stol(timestamp) <0  ? -1 : 1;
+              int isEarly =ts-DeadStave.Begin <0  ? -1 : 1;
+              int isLate = DeadStave.End-ts <0  ? -1 : 1;
               std::cout<< "isEarly= "<<isEarly << "  isLate: "<< isLate << " previous_timestamp_state "<< previous_timestamp_state <<std::endl;
               bool PeriodPartiallyIncluded = (previous_timestamp_state== 2) && (isEarly - isLate==-2);
               std::cout<<"PeriodPartiallyIncluded: "<< PeriodPartiallyIncluded <<std::endl;
@@ -115,7 +129,8 @@ void DataQualityProcessor::process_run(string inputRun, string path, string pass
 
           
 
-		      string name = Form("run%s_%s_%s_stave%d_%s",inputRun.c_str(),obj->GetName(),timestamp.c_str(),stave,status.c_str());
+		      //string name = Form("run%s_%s_%s_stave%d_%s",inputRun.c_str(),obj->GetName(),timestamp.c_str(),stave,status.c_str());
+          string name = "run" + inputRun + "_" + obj->GetName() + "_" + timestamp + "_stave" + to_string(stave) + "_" + status; 
           if (obj_type=="TH1"){
 
 		          TH1D* obj_write = new TH1D(name.c_str(),title.c_str(),obj->GetNbinsX(), obj->GetXaxis()->GetXmin(), obj->GetXaxis()->GetXmax());
@@ -147,9 +162,12 @@ void DataQualityProcessor::process_run(string inputRun, string path, string pass
 
 
 void DataQualityProcessor::process_period(Period input){
-  string path = Form("%s/%s/%.1f",outputPath,input.collision_system.c_str(),input.energy);
+  //string path = Form("%s/%s/%.1f",outputPath,input.collision_system.c_str(),input.energy);
+
+  string path = outputPath + "/" + input.collision_system + "/" + to_string(input.energy);
   gSystem->mkdir(path.c_str(),kTRUE);
-  vector <string> runs = getRuns(Form("%s/%s.txt",inputPath,input.name.c_str())); //Todo: make it more flexible, e.g. pass as argument, or read from config file
+  string full_name = inputPath + "/" + input.name + ".txt";
+  vector <string> runs = getRuns(full_name); //Todo: make it more flexible, e.g. pass as argument, or read from config file
   for (auto inputRun: runs) process_run(inputRun,path,input.pass);
 }
 

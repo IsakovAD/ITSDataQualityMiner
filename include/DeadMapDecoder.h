@@ -1,8 +1,8 @@
-#include "ITSGeometry.h"
 #pragma once
+#include "ITSGeometry.h"
 
-#pragma cling add_include_path(".")
-#pragma cling add_include_path("../include")
+
+
 
 
 #include <string>
@@ -40,11 +40,7 @@
 
 
 
-#include "ITSGeometry.h"
 
-
-
-using namespace TMath;
 
 
 struct DeadStave {
@@ -62,7 +58,7 @@ public:
     DeadMapDecoder(const ITSGeometry& geo);
 
     std::vector<uint16_t> expandvector(std::vector<uint16_t> words, std::string version, string opt);    
-    std::vector<DeadStave> analysis(int RunNumber, string path);
+    std::vector<DeadStave> analysis(int RunNumber, std::string path);
 
     private:
 

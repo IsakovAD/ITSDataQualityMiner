@@ -3,7 +3,6 @@
 
 
 #include <string>
-using namespace std;
 
 #include "CCDB/CcdbApi.h"
 #include<TH1.h>
@@ -15,22 +14,21 @@ using namespace std;
 class CCDBServer{
     public:
 
-    CCDBServer(string dataBaseType, string ccdb_port, string apass) : dataBaseType(dataBaseType), ccdb_port(ccdb_port), apass(apass) {
+    CCDBServer(std::string dataBaseType, std::string ccdb_port, std::string apass) : dataBaseType(dataBaseType), ccdb_port(ccdb_port), apass(apass) {
 
     ccdbApi.init(ccdb_port);
 
     };
-    ~CCDBServer();  
 
-    TH1* downloadObject(string RunNumber, string PassName, string timestamp, string fullPath, string ObjectType);
-    vector<string> getTimeStamps(string objectName, string targetRun, string targetPass);
+    TH1* downloadObject(std::string RunNumber, std::string PassName, std::string timestamp, std::string fullPath, std::string ObjectType);
+    std::vector<std::string> getTimeStamps(std::string objectName, std::string targetRun, std::string targetPass);
 
     private:
 
    o2::ccdb::CcdbApi ccdbApi;
-   string dataBaseType;
-   string ccdb_port;
-   string apass;
+   std::string dataBaseType;
+   std::string ccdb_port;
+   std::string apass;
 
 
 

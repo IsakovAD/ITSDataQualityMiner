@@ -98,11 +98,7 @@ std::vector<uint16_t>  DeadMapDecoder::expandvector(std::vector<uint16_t> words,
 std::vector<DeadStave> DeadMapDecoder::analysis(int run, string path){
 
       std::vector<DeadStave> vLongShutdowns;
-      // for (int i=0; i<mGeo.N_LANES; i++){
-      //       //std::cout<<"getting lane coordinates for: "<< i << std::endl;
-      //       mGeo.getlanecoordinates(i);
-            
-      //   }
+
       
        auto& cm = o2::ccdb::BasicCCDBManager::instance(); //AID: it should be created only once, move to constructor
 
@@ -171,12 +167,10 @@ std::vector<DeadStave> DeadMapDecoder::analysis(int run, string path){
                         for (std::vector<DeadStave>::iterator it = vLongShutdowns.begin();it< vLongShutdowns.end();){
                           //std::cout<<"Inside of delete with stave: "<<(*it).Stave<< "time: "<< (*it).Begin << ":"<< (*it).End << " UNIX_orbit-(*it).End is "<< UNIX_orbit-(*it).End << " ( (*it).End - (*it).Begin) "<<( (*it).End - (*it).Begin) / (60*1000) <<std::endl;
                           if ( ( UNIX_orbit-(*it).End > 60*1000) && ( (*it).End - (*it).Begin) < DeadStaveDuration*60*1000){
-                                            //std::cout<<"deleted "<<std::endl;
                                            vLongShutdowns.erase(it);
                           }
 
                           else ++it;                 
-                          //std::cout<<"done"<<std::endl;  
 
 
                         }
@@ -193,17 +187,12 @@ std::vector<DeadStave> DeadMapDecoder::analysis(int run, string path){
     }
 
 
-    std::cout<<"List of shutdowns with size : "<< vLongShutdowns.size()<<std::endl;  
-    // for (auto shutdown: vLongShutdowns){
-    //   int layer = mGeo.getlanecoordinates(shutdown.Stave);
-    //   std::cout<<"L"<< layer<<"_"<< shutdown.Stave - mGeo.StaveBoundary[layer] << " with duration: "<< (shutdown.End-shutdown.Begin)/100 << " begin: "<<shutdown.Begin << " end "<< shutdown.End  <<std::endl;
-    // }
 
-
-  std::ofstream fOut(Form("%s/output.txt",path.c_str()), std::ios::app);
+  
+  std::ofstream fOut( path + "/output.txt", std::ios::app);
     for (auto shutdown: vLongShutdowns){
       int layer = mGeo.StaveToLayer(shutdown.Stave);
-      fOut<<"Run"<< run<<" L"<< layer<<"_"<< shutdown.Stave - mGeo.StaveBoundary[layer] << " with duration: "<< (shutdown.End-shutdown.Begin)/100 << " begin: "<<shutdown.Begin << " end "<< shutdown.End  <<std::endl;
+      fOut<<"Run"<< run<<" L"<< layer<<"_"<< shutdown.Stave - mGeo.StaveBoundary[layer] << " with duration: "<< (shutdown.End-shutdown.Begin)/60000 << " begin: "<<shutdown.Begin << " end "<< shutdown.End  <<std::endl;
     }
 
     return vLongShutdowns;

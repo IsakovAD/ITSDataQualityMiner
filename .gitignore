@@ -1,2 +1,6 @@
-build
-download
+/build/
+/downloads/
+*.so
+*.d
+*.pcm
+*.root

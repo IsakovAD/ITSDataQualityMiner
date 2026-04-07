@@ -10,7 +10,6 @@ public:
         for (int i=0; i<N_LANES; i++) getlanecoordinates(i);
     };  
 
-    uint16_t  isFirstOfLane(uint16_t chipid);
     uint16_t StaveToLayer(uint16_t stv) const;
     void getlanecoordinates(int laneid) ;
 

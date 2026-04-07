@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # ── Find dependencies ────────────────────────────────────────────────
 list(APPEND CMAKE_MODULE_PATH $ENV{O2_ROOT}/lib/cmake/O2)
-#include($ENV{O2_ROOT}/lib/cmake/O2/O2Targets.cmake )
 
 
 find_package(ROOT REQUIRED COMPONENTS Core Hist Graf)
@@ -16,18 +15,7 @@ find_package(Boost 1.58 REQUIRED COMPONENTS container program_options system log
 find_package(FairLogger REQUIRED)
 find_package(FairMQ REQUIRED)   # restored
 find_package(JAliEnROOT MODULE)
-#find_package(Vc REQUIRED)
-#find_package(FairRoot REQUIRED)
-#find_package(Boost REQUIRED)
-#find_package(MC REQUIRED)
 
-
-
-#set(CMAKE_PREFIX_PATH "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/dev-local5")
-#set(CMAKE_PREFIX_PATH "/home/its/QC_QA_Team/sw/slc9_x86-64/O2/install")
-#find_package(O2 REQUIRED COMPONENTS ITSBase)
-
-#find_package(Gandiva MODULE)
 # ── Collect sources ─────────────────────────────────────────────────
 set(LIB_SOURCES
     src/ITSGeometry.cpp
@@ -64,11 +52,9 @@ target_link_libraries(ITSDataQualityMinerLib PUBLIC
     JAliEn::JAliEn
     -lO2CCDB
     -lO2DataFormatsITSMFT
-    #-lO2CommonConstants
     -lO2DetectorsBase
     -lO2ITSBase
     -lO2ITSMFTBase
-    #O2::ITSBase
 
  
 )
