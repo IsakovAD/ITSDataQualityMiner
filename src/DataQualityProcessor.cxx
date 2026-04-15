@@ -46,20 +46,20 @@ void DataQualityProcessor::process_run(string inputRun, string path, string pass
 
   
   vector<DeadStave> ShutDowns = myDecoder->analysis(stol(inputRun.c_str()),path);
+
+  std::cout<<"Number of shutdowns for run "<< inputRun << ": "<< ShutDowns.size() <<std::endl;
   
   if (ShutDowns.size()==0) return;
 string file_name = path + "/fout_mw_" + inputRun + ".root";
 TFile *fOut = new TFile( file_name.c_str() ,"RECREATE");
 
 
-  string status = "";
+
   for (auto object: inputs){
 	vector<string> timestamp_map = myCCDBServer->getTimeStamps(object.first,inputRun.c_str(),pass.c_str());
-  std::cout<<"timestamp_map size: "<< timestamp_map.size()<<endl;
+  std::cout<<"For object: "<< object.first << "with pass: "<< pass <<  " we got " << timestamp_map.size() << " timestamps"<<std::endl;
   int iTimestamp = 0;
   int previous_timestamp_state= 0;
-
-  //for (string timestamp: timestamp_map) std::cout<<"timestamp: "<< timestamp <<std::endl;
 
 
 	for (string timestamp: timestamp_map){
@@ -71,50 +71,43 @@ TFile *fOut = new TFile( file_name.c_str() ,"RECREATE");
                 continue;
             }
 
-
             iTimestamp++;
             int stave=-1;
             previous_timestamp_state=0;
             for (auto DeadStave: ShutDowns){
-              std::cout<<"------------------- new check"<<std::endl;
               if (stave!=DeadStave.Stave) previous_timestamp_state=0; //resetting state for new stave
-              cout<<" Duration (min):"<<  (DeadStave.End - DeadStave.Begin)/(60*1000.) <<"From : "<< DeadStave.Begin << " to "<< DeadStave.End << " timestamp: "<< ts << "("<< ts-DeadStave.Begin << ";"<< DeadStave.End-ts<<") DeadStave.Stave= "<< DeadStave.Stave<<endl;
+              //cout<<" Duration (min):"<<  (DeadStave.End - DeadStave.Begin)/(60*1000.) <<"From : "<< DeadStave.Begin << " to "<< DeadStave.End << " timestamp: "<< ts << "("<< ts-DeadStave.Begin << ";"<< DeadStave.End-ts<<") DeadStave.Stave= "<< DeadStave.Stave<<endl;
               
               bool PeriodFullyIncluded = ts > DeadStave.Begin && ts < DeadStave.End;
               
               int isEarly =ts-DeadStave.Begin <0  ? -1 : 1;
               int isLate = DeadStave.End-ts <0  ? -1 : 1;
-              std::cout<< "isEarly= "<<isEarly << "  isLate: "<< isLate << " previous_timestamp_state "<< previous_timestamp_state <<std::endl;
+              //std::cout<< "isEarly= "<<isEarly << "  isLate: "<< isLate << " previous_timestamp_state "<< previous_timestamp_state <<std::endl;
               bool PeriodPartiallyIncluded = (previous_timestamp_state== 2) && (isEarly - isLate==-2);
-              std::cout<<"PeriodPartiallyIncluded: "<< PeriodPartiallyIncluded <<std::endl;
 
-                  
 
               previous_timestamp_state = isEarly - isLate;
-              if (PeriodFullyIncluded || PeriodPartiallyIncluded){
-                    std::cout<<"This timestamp is BAD!"<<std::endl;
-                      
+              if (PeriodFullyIncluded || PeriodPartiallyIncluded){                      
                     stave = DeadStave.Stave;
-                    
-                    int layer = myGeo->StaveToLayer(stave);
 
-                    int found = object.first.find("Layer");
-                    if (found!=std::string::npos && object.first[found+5]!=layer) continue; //getting layer number of object name
-                    
-                    
-                    //std::cout<<" object: "<<object.first << "Has layer= "<< object.first[found+5];
-
-
-                    status = "BAD";
                     break;
               }         
             }
-            
-            if (stave == -1){
-              status = "GOOD";
-              if (iTimestamp%5!=0) continue;
-                
-            }
+
+string status = (stave == -1) ? "GOOD" : "BAD";           
+           
+if (stave == -1) {
+
+    if (iTimestamp % 30 != 0) continue;
+} else {
+    int layer = myGeo->StaveToLayer(stave);
+    int found = object.first.find("Layer");
+    if (found != std::string::npos) {
+        int layerInName = object.first[found+5] - '0';
+        if (layerInName != layer) continue;
+    }
+}
+
 
             cout<<"getting object: "<< object.first<< " Run: "<< inputRun << " timestamp: "<< timestamp<< " status: "<< status<< "stave: "<< stave << endl;
             string obj_type = object.second;
@@ -129,7 +122,6 @@ TFile *fOut = new TFile( file_name.c_str() ,"RECREATE");
 
           
 
-		      //string name = Form("run%s_%s_%s_stave%d_%s",inputRun.c_str(),obj->GetName(),timestamp.c_str(),stave,status.c_str());
           string name = "run" + inputRun + "_" + obj->GetName() + "_" + timestamp + "_stave" + to_string(stave) + "_" + status; 
           if (obj_type=="TH1"){
 
@@ -139,6 +131,8 @@ TFile *fOut = new TFile( file_name.c_str() ,"RECREATE");
 			        }
 			        fOut->cd();
               obj_write -> Write();
+                delete obj_write;
+
 		      } else{
              TH2D* obj_write = new TH2D(name.c_str(),title.c_str() ,obj->GetNbinsX(), obj->GetXaxis()->GetXmin(), obj->GetXaxis()->GetXmax(), obj->GetNbinsY(),obj->GetYaxis()->GetXmin(), obj->GetYaxis()->GetXmax());
              for (int ix=1;ix<=obj->GetNbinsX();ix++){
@@ -148,6 +142,8 @@ TFile *fOut = new TFile( file_name.c_str() ,"RECREATE");
                           }
               fOut->cd();
               obj_write -> Write(); 
+                delete obj_write;
+
           }
 
 
@@ -155,6 +151,8 @@ TFile *fOut = new TFile( file_name.c_str() ,"RECREATE");
   }
   fOut->cd();
   fOut->Close();
+  delete fOut;
+
 
 
 }
@@ -162,7 +160,6 @@ TFile *fOut = new TFile( file_name.c_str() ,"RECREATE");
 
 
 void DataQualityProcessor::process_period(Period input){
-  //string path = Form("%s/%s/%.1f",outputPath,input.collision_system.c_str(),input.energy);
 
   string path = outputPath + "/" + input.collision_system + "/" + to_string(input.energy);
   gSystem->mkdir(path.c_str(),kTRUE);

@@ -60,7 +60,7 @@ vector<string> CCDBServer::getTimeStamps(string objectName, string targetRun, st
        ss>>word;
        ss>>word;
       periodName = word;
-       
+   
        if (runnumber==targetRun && pass==targetPass ){
 	         cout<<"Found Period name "<<periodName  << "pass="<<pass << " timestamp "<< timestamp<< " run: "<< runnumber<< endl;
 		      out_map.push_back(timestamp);

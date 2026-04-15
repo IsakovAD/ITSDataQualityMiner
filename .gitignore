@@ -1,5 +1,5 @@
 /build/
-/downloads/
+/download/
 *.so
 *.d
 *.pcm
