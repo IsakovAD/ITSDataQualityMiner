@@ -112,7 +112,7 @@ if (stave == -1) {
             cout<<"getting object: "<< object.first<< " Run: "<< inputRun << " timestamp: "<< timestamp<< " status: "<< status<< "stave: "<< stave << endl;
             string obj_type = object.second;
 
-            TH1*  obj = (TH1*) (myCCDBServer->downloadObject(inputRun.c_str(), pass.c_str(), timestamp, object.first, obj_type ));
+            TH1*  obj = (TH1*) (myCCDBServer->downloadObject(inputRun.c_str(), pass.c_str(), ts, object.first, obj_type ));
                        if (obj == NULL) {
                            cout<<"File not found!"<<endl;
                            continue;

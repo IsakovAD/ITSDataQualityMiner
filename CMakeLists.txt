@@ -15,6 +15,10 @@ find_package(Boost 1.58 REQUIRED COMPONENTS container program_options system log
 find_package(FairLogger REQUIRED)
 find_package(FairMQ REQUIRED)   # restored
 find_package(JAliEnROOT MODULE)
+find_package(SQLite3 REQUIRED)
+
+
+
 
 # ── Collect sources ─────────────────────────────────────────────────
 set(LIB_SOURCES
@@ -22,6 +26,7 @@ set(LIB_SOURCES
     src/DeadMapDecoder.cpp
     src/CCDBServer.cpp 
     src/DataQualityProcessor.cxx
+    src/AssyncProcessor.cxx
 )
 
 # ── Build shared library ────────────────────────────────────────────
@@ -48,6 +53,7 @@ target_link_libraries(ITSDataQualityMinerLib PUBLIC
     Boost::system
     Microsoft.GSL::GSL
     FairLogger::FairLogger
+    SQLite::SQLite3
     FairMQ::FairMQ          
     JAliEn::JAliEn
     -lO2CCDB
@@ -61,10 +67,13 @@ target_link_libraries(ITSDataQualityMinerLib PUBLIC
 
 # ── Build executable ───────────────────────────────────────────────
 add_executable(its-dqm apps/main.cxx)
+add_executable(its-ccdb-db-test apps/test_database.cxx)
+add_executable(its-qa-qc apps/AssyncQA.cxx)
 target_link_libraries(its-dqm PRIVATE ITSDataQualityMinerLib)
-
+target_link_libraries(its-ccdb-db-test PRIVATE ITSDataQualityMinerLib)
+target_link_libraries(its-qa-qc PRIVATE ITSDataQualityMinerLib)
 # ── Install rules ──────────────────────────────────────────────────
-install(TARGETS ITSDataQualityMinerLib its-dqm
+install(TARGETS ITSDataQualityMinerLib its-dqm its-qa-qc
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin
 )

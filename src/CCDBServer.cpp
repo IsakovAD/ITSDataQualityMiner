@@ -6,22 +6,97 @@
 using namespace std;
 
 
-TH1* CCDBServer::downloadObject(string RunNumber, string PassName, string timestamp, string fullPath, string ObjectType){
+std::string CCDBServer::GetObjectList(std::string objectName){
+    objectName = dataBaseType + objectName; 
+
+
+    std::string output = ccdbApi.list(objectName.c_str(),false,"text/plain"); 
+
+        std::cout<<"for object name: "<<objectName << " return has length of: "<< output.size()<<std::endl; 
+
+    return output;
+
+
+}
+
+
+
+TH1* CCDBServer::downloadObject(string RunNumber, string PassName, long timestamp, string fullPath, string ObjectType) const{
 
     TH1 *out = nullptr ;
     fullPath = dataBaseType + fullPath;
     
-    if (timestamp.size() < 2) return out; 
+    //TO-DO: check that timestamp is fine
+    //if (timestamp.size() < 2) return out; 
     std::map<std::string, std::string> metadata;
     metadata["RunNumber"]=RunNumber;
     metadata["PassName"]=PassName;
 
-    if ( ObjectType=="TH2")
-         out= ccdbApi.retrieveFromTFileAny<TH2>(fullPath, metadata, stol(timestamp)); 
-    else
-         out = ccdbApi.retrieveFromTFileAny<TH1>(fullPath, metadata, stol(timestamp));
- 
+   //  if ( ObjectType=="TH2")
+   //       out= ccdbApi.retrieveFromTFileAny<TH2>(fullPath, metadata, timestamp); 
+   //  else{
+   //       std::cout<<"Downloading object with path: "<< fullPath << " and timestamp: "<< timestamp <<std::endl;
+   //       out = ccdbApi.retrieveFromTFileAny<TH1>(fullPath, metadata, timestamp);
+   //       std::cout<<"Done! Object was Downloaded "<<std::endl;
+   //  }
+
+   try {
+      if ( ObjectType=="TH2")  out= ccdbApi.retrieveFromTFileAny<TH2>(fullPath, metadata, timestamp);
+      else if  (ObjectType=="TEfficiency") {
+            TEfficiency *hEff = ccdbApi.retrieveFromTFileAny<TEfficiency>(fullPath, metadata, timestamp);
+            if (hEff){
+               //[TO-DO]write function to convert TEff to TH1
+               TH1 *teff_Num = (TH1*)hEff->GetPassedHistogram();
+               teff_Num->Divide(hEff->GetTotalHistogram());
+               for(int i=1; i<=teff_Num->GetNbinsX(); i++) {
+            teff_Num->SetBinError(i, std::max(hEff->GetEfficiencyErrorLow(i), hEff->GetEfficiencyErrorUp(i)));
+         }
+               out = (TH1*) teff_Num->Clone("Efficiency");
+               out->SetStats(0);
+            }
+      } else
+            out = ccdbApi.retrieveFromTFileAny<TH1>(fullPath, metadata, timestamp);
+      } catch (const std::exception& ex){
+	   cout<<"[ERROR] Can't download object"<<fullPath  << " database: "<< dataBaseType<< " in Run: "<< RunNumber<<endl;
+   
+   
+   }
+
+
+
+
+
    return out;
+}
+
+
+    TH1* CCDBServer::downloadObject_db(std::string RunNumber, std::string PassName, std::string fullPath, std::string ObjectType, std::string module_name) const{
+        
+        //string module_name = "tracks";
+         long timestamp = myDataBase->getTimestamp(RunNumber,PassName,module_name);
+         std::cout<<"Downloading object with timestamp: "<<timestamp<<std::endl;
+         return downloadObject(RunNumber,PassName,timestamp,fullPath,ObjectType);
+
+
+
+
+    }
+
+
+long CCDBServer::getNROFs (const string& RunNumber) const{
+      long nRofs = -1;
+
+      string ModuleName = dataBaseType=="qc" ? "ITSTrackTask" : "Tracks";
+      std::string fullPath = dataBaseType +  "/ITS/MO/"+ ModuleName + "/AssociatedClusterFraction";
+
+
+      TH1D *hClustersPerROF = (TH1D*) downloadObject_db(RunNumber, "", fullPath, "TH1", "tracks");
+//          TH1* CCDBServer::downloadObject_db(std::string RunNumber, std::string PassName, std::string fullPath, std::string ObjectType, std::string module_name){
+
+
+      if (hClustersPerROF != NULL)  nRofs = hClustersPerROF->Integral();
+      else cout<<"[ERROR] Problem with receiving number of ROFs for run: "<< RunNumber<<endl;
+      return nRofs;
 }
 
 
