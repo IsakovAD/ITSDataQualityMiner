@@ -77,7 +77,7 @@ string TokenizePath(const string &input, const char &token) {
 }
 
 
-TH1* performRatio(TH1 *obj_new, TH1 *obj_old, bool isDoCentralBarrelCut) {
+TH1* performRatio(TH1 *obj_old, TH1 *obj_new, bool isDoCentralBarrelCut) {
 
   if (!obj_new || !obj_old) {
     std::cout << "[ERROR] Null pointer passed to performRatio! ratio "
@@ -103,9 +103,7 @@ TH1* performRatio(TH1 *obj_new, TH1 *obj_old, bool isDoCentralBarrelCut) {
     }
 
   obj_ratio->Scale(obj_new->Integral() / obj_old->Integral());
-     std::cout<<"0000000000000000000000000000000000000000  isDoCentralBarrelCut = " << isDoCentralBarrelCut<<std::endl;
   if (isDoCentralBarrelCut) {
-    std::cout<<"0000000000000000000000000000000000000000  setting new range user 00000000000000000000"<<std::endl;
       obj_ratio->GetXaxis()->SetRangeUser(-1.2, 1.2);
   }
   

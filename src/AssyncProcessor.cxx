@@ -92,6 +92,8 @@ int AssyncProcessor::StartQA() {
 
   string ccdb_port;
 
+  //2 -> new data
+  //1 -> old data
   if ( Data2Type == "qc_mc") ccdb_port  = "ali-qcdbmc-gpn.cern.ch:8083";
   else ccdb_port  = "ali-qcdb-gpn.cern.ch:8083";
 
@@ -119,7 +121,7 @@ int AssyncProcessor::StartQA() {
     myPDF->AddText("run "+ run);
     long nROFs_old = server_old.getNROFs(run);
     long nROFs_new = server_new.getNROFs(run);
-
+    int nEmpty=0, nProblem=0;
 
     for (QA_object object_new : vObjects_new) {
       if (!object_new.isEnabled)    continue;
@@ -161,36 +163,44 @@ int AssyncProcessor::StartQA() {
       // if check is fine - skip object
       // if check is bad - plot object
 
-      TH1* ratio = performRatio(hist_new, hist_old, object_old.isCentralBarrelCut);
+      TH1* ratio = performRatio(hist_old, hist_new, object_old.isCentralBarrelCut);
 
 
       string title;
 
       if (hist_new){
-        title = hist_new->GetTitle();
+        //title = hist_new->GetTitle();
+        title = object_new.Name;
         hist_new->SetTitle(Form("New data: %s ", 
-                      Data1Pass.size() < 2 ? "online" : Data1Pass.c_str()));
+                      Data2Pass.size() < 2 ? "online" : Data2Pass.c_str()));
       }
       if (hist_old){ 
-        title = hist_old->GetTitle();
+        //title = hist_old->GetTitle();
+        title = object_old.Name;
+
         hist_old->SetTitle(Form("Old data: %s",
-                      Data2Pass.size() < 2 ? "online" : Data2Pass.c_str()));
+                      Data1Pass.size() < 2 ? "online" : Data1Pass.c_str()));
       }
 
       if (ratio){
             ratio->SetTitle(Form("Ratio: %s / %s", 
                            Data1Pass.size() < 2 ? "online" : Data1Pass.c_str(),
                            Data2Pass.size() < 2 ? "online" : Data2Pass.c_str()));
+      }else {
+        nEmpty++;
+
       }
 
       string analysis_result = title + ":      " + doCompare(hist_new, hist_old, 0.01, object_old.isCentralBarrelCut);
       std::cout<<"================= result is: "<< analysis_result << std::endl;
       if (analysis_result.size()>0) {
+        nProblem++;
         //myPDF->AddTitle(result);
         //myPDF->AddDraw({obj_new,obj_old,ratio},result);
         myPDF->AddDraw({
-              {hist_new, object_new},
               {hist_old, object_old},
+              {hist_new, object_new},
+              
               {ratio,   object_new}   
         }, analysis_result, run);
 
@@ -198,6 +208,8 @@ int AssyncProcessor::StartQA() {
       //myPDF->AddDraw({obj_new});
 
     }
+
+    mReportFile<<"Run: "<< run << "empty objects: "<< nEmpty <<" problematic objects: "<< nProblem << std::endl;
   }
     myPDF->close();
 

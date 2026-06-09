@@ -89,11 +89,12 @@ TH1* CCDBServer::downloadObject(string RunNumber, string PassName, long timestam
 
 
       string ModuleName;
+
       if (object.Task=="Tracks")
          ModuleName = dataBaseType=="qc" ? "ITSTrackTask" : "Tracks";
       else if (object.Task=="Clusters")
          ModuleName = dataBaseType=="qc" ? "ITSClusterTask" : "Clusters";
-      else if (object.Task=="Mc")
+      else if ( object.Task.find("Mc") !=std::string::npos)
          ModuleName ="TracksMc";
       else {
          cout<<"[ERROR] Wrong Task name: "<< object.Task << " for object: "<< object.Name << " in database: "<< dataBaseType << "Expected: Tracks, Clusters, TracksMc" <<endl;
@@ -103,7 +104,7 @@ TH1* CCDBServer::downloadObject(string RunNumber, string PassName, long timestam
 
           std::cout<<"[DEBUG] [downloadObject] Getting object with full path: "<<fullPath <<" apass is "<< apass <<std::endl;
 
-
+         if (ModuleName == "TracksMc") ModuleName = "simulation";
         return downloadObject_db(RunNumber, apass, fullPath, object.ObjectType,ModuleName);
     }
 

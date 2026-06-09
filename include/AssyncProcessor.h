@@ -16,11 +16,12 @@
 #include "PDFBuilder.h"
 
 #include <filesystem>
+#include <fstream>
 
 
 class AssyncProcessor{
     public:
-        AssyncProcessor(const string& json_file_path){  
+        AssyncProcessor(const string& json_file_path):mReportFile(){  
             std::cout<<"parsing params:"<<std::endl;
             parse_parameters(json_file_path);
             std::cout<<"preparing folders:"<<std::endl;
@@ -32,7 +33,10 @@ class AssyncProcessor{
 
 
             runs = getRuns("inputs/its-qa-qc/"+data_path);
-
+            
+            mReportFile.open(folder_name+"/Report.txt");
+            if (!mReportFile.is_open())
+             throw std::runtime_error("Failed to open report file in:"+folder_name+"/Report.txt");
             std::cout<<"We have: "<< runs.size() << " runs!"<<std::endl;
 
         }   
@@ -43,6 +47,7 @@ class AssyncProcessor{
         string outname;
         std::streambuf *original_cout_buffer;
         vector<string> runs;
+        std::ofstream mReportFile;
 
         void PrepareOutputFolders();
 
