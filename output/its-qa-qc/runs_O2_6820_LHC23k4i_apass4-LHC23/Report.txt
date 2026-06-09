@@ -1,8 +1,8 @@
-Run: 535069empty objects: 2 problematic objects: 9
-Run: 535084empty objects: 2 problematic objects: 9
-Run: 535085empty objects: 9 problematic objects: 9
-Run: 535087empty objects: 2 problematic objects: 9
-Run: 535345empty objects: 2 problematic objects: 9
-Run: 535365empty objects: 2 problematic objects: 9
-Run: 535475empty objects: 2 problematic objects: 9
-Run: 535476empty objects: 2 problematic objects: 9
+Run: 535069empty objects: 2 problematic objects: 7
+Run: 535084empty objects: 2 problematic objects: 7
+Run: 535085empty objects: 9 problematic objects: 0
+Run: 535087empty objects: 2 problematic objects: 7
+Run: 535345empty objects: 2 problematic objects: 6
+Run: 535365empty objects: 2 problematic objects: 7
+Run: 535475empty objects: 2 problematic objects: 7
+Run: 535476empty objects: 2 problematic objects: 7

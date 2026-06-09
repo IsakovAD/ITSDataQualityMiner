@@ -19,7 +19,9 @@ int ReadParams(int argc, char** argv);
 
 
 int main(int argc, char** argv){
-        ReadParams(argc, argv);
+    
+        int rc = ReadParams(argc, argv);
+        if (rc != 0) return rc;
 
         AssyncProcessor processor(inputPath);
         std::cout<<"Starting QA"<<std::endl;
@@ -49,7 +51,7 @@ int ReadParams(int argc, char** argv){
         
         if (vm.count("help")) {
             std::cout << desc << "\n";
-            return 0;
+            return 2;
         }
         
         po::notify(vm);  

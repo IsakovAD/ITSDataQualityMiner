@@ -27,6 +27,7 @@ set(LIB_SOURCES
     src/CCDBServer.cpp 
     src/DataQualityProcessor.cxx
     src/AssyncProcessor.cxx
+    src/Helpers.cxx
 )
 
 # ── Build shared library ────────────────────────────────────────────

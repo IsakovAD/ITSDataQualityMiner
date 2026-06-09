@@ -55,7 +55,7 @@ class AssyncProcessor{
 		void parse_parameters(const string& json_file_path);
 		vector <string> getRuns (const string& path) const;
 		vector<QA_object> readObjects(const string& file_name);
-        string doCompare(TH1* hNew, TH1* hOld, double ratio_thr, bool isCentralBarrelCut); 
+        string doCompare(TH1* hRatio, double ratio_thr, bool isCentralBarrelCut); 
 		TH2D* produceAverageClusterPlot(const CCDBServer& server, const TString& run, QA_object object );
 
 };

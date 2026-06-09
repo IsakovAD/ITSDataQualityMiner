@@ -71,7 +71,7 @@ void AssyncProcessor::PrepareOutputFolders(){
   folder_name = "output/its-qa-qc/"+(string) outname; //TO-DO: generalize location of the ouput
 
   if (!std::filesystem::exists(folder_name))
-    std::filesystem::create_directory(folder_name);
+    std::filesystem::create_directories(folder_name);
 
   
   std::cout<<" creating log"<<std::endl;
@@ -190,8 +190,10 @@ int AssyncProcessor::StartQA() {
         nEmpty++;
 
       }
-
-      string analysis_result = title + ":      " + doCompare(hist_new, hist_old, 0.01, object_old.isCentralBarrelCut);
+      string analysis_result;
+      if (ratio)
+      analysis_result = doCompare(ratio, 0.01, object_old.isCentralBarrelCut);
+      string object_title = title + ":      " + analysis_result;
       std::cout<<"================= result is: "<< analysis_result << std::endl;
       if (analysis_result.size()>0) {
         nProblem++;
@@ -202,7 +204,7 @@ int AssyncProcessor::StartQA() {
               {hist_new, object_new},
               
               {ratio,   object_new}   
-        }, analysis_result, run);
+        }, object_title, run);
 
       }
       //myPDF->AddDraw({obj_new});
@@ -229,28 +231,22 @@ int AssyncProcessor::StartQA() {
 }
 
 
-string AssyncProcessor::doCompare(TH1* obj_new, TH1* obj_old, double ratio_thr, bool isCentralBarrelCut ){
+string AssyncProcessor::doCompare(TH1* hRatio, double ratio_thr, bool isCentralBarrelCut ){
 
   string result = "";
-  if (!obj_new || !obj_old){
-    std::cout<<"[doCompare] empty objects, skipping"<<std::endl;
-    return "One of objects missing";
 
-
-  }
-  TH1* hRatio = performRatio(obj_new, obj_old,isCentralBarrelCut);
 
   auto [xMin, yMin, xMax, yMax] = getMinMaxCoordinates(hRatio);
 
   std::cout<<"comparing Min= "<< hRatio->GetMinimum(0) << " Max= "<< hRatio->GetMaximum() << " with THR: "<< ratio_thr << std::endl;
 
   if (hRatio->InheritsFrom("TH2")) {
-    if (1-hRatio->GetMinimum(0) > ratio_thr) result += string( Form("   Larger by %.2f at [%.1f,%.1f]",hRatio->GetMinimum(0),xMin, yMin));
-    if (hRatio->GetMaximum()-1 > ratio_thr)  result += string( Form("    Smaller by %.2f at [%.1f,%.1f]",hRatio->GetMaximum(),xMax, yMax));
+    if (1-hRatio->GetMinimum(0) > ratio_thr) result += string( Form("   Larger by %.2f at [%.1f,%.1f]",1-hRatio->GetMinimum(0),xMin, yMin));
+    if (hRatio->GetMaximum()-1 > ratio_thr)  result += string( Form("    Smaller by %.2f at [%.1f,%.1f]",hRatio->GetMaximum()-1,xMax, yMax));
 
   } else {
-    if (1-hRatio->GetMinimum(0) > ratio_thr) result += string( Form("   Larger by %.2f at [%.1f]",hRatio->GetMinimum(0),xMin));
-    if (hRatio->GetMaximum()-1 > ratio_thr)  result += string( Form("    Smaller by %.2f at [%.1f]",hRatio->GetMaximum(),xMax));
+    if (1-hRatio->GetMinimum(0) > ratio_thr) result += string( Form("   Larger by %.2f at [%.1f]",1-hRatio->GetMinimum(0),xMin));
+    if (hRatio->GetMaximum()-1 > ratio_thr)  result += string( Form("    Smaller by %.2f at [%.1f]",hRatio->GetMaximum()-1,xMax));
 
   }
 

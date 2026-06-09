@@ -64,6 +64,11 @@ void AddDraw(std::vector<std::pair<TH1*,QA_object>> inputs, const std::string& t
             latex->SetTextFont(62);
             latex->Draw();
             CurrentRow++;
+
+                if (CurrentRow == nRows_) {
+                    printPage();
+                    preparePage();
+                }
     }
 
  
@@ -91,7 +96,7 @@ void AddDraw(std::vector<std::pair<TH1*,QA_object>> inputs, const std::string& t
         }
 
 void close() {
-    printPage();
+    if (CurrentRow > 0) printPage();
      std::cout<<"[PDFBuilder] closing  document with "<<CurrentPage << " pages"<< std::endl;
     c1->Print(Form("%s/report.pdf)",path_.c_str()), "pdf");      // always close at the end
 }
