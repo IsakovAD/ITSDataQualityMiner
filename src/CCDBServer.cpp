@@ -24,8 +24,20 @@ std::string CCDBServer::GetObjectList(std::string objectName){
 TH1* CCDBServer::downloadObject(string RunNumber, string PassName, long timestamp, string fullPath, string ObjectType) const{
 
     TH1 *out = nullptr ;
-    fullPath = dataBaseType + fullPath;
     
+    string qc_db_folder=dataBaseType;
+    
+    std::cout<<"========== dataBaseType= "<< dataBaseType << std::endl;
+    if (dataBaseType=="aQC") qc_db_folder= "qc_async";
+    if (dataBaseType=="qc_mc") qc_db_folder = "qc_mc";
+
+    
+    
+    
+    fullPath = qc_db_folder + fullPath;
+    
+
+
     //TO-DO: check that timestamp is fine
     //if (timestamp.size() < 2) return out; 
     std::map<std::string, std::string> metadata;
@@ -69,11 +81,39 @@ TH1* CCDBServer::downloadObject(string RunNumber, string PassName, long timestam
    return out;
 }
 
+   TH1* CCDBServer::downloadObject(string RunNumber, QA_object object) const{
+
+      //TO-do: probably will not work, check names of tasks and modules 
+      
+
+
+
+      string ModuleName;
+      if (object.Task=="Tracks")
+         ModuleName = dataBaseType=="qc" ? "ITSTrackTask" : "Tracks";
+      else if (object.Task=="Clusters")
+         ModuleName = dataBaseType=="qc" ? "ITSClusterTask" : "Clusters";
+      else if (object.Task=="Mc")
+         ModuleName ="TracksMc";
+      else {
+         cout<<"[ERROR] Wrong Task name: "<< object.Task << " for object: "<< object.Name << " in database: "<< dataBaseType << "Expected: Tracks, Clusters, TracksMc" <<endl;
+         return nullptr;
+      }
+         std::string fullPath = "/ITS/MO/"+ ModuleName + "/"+ object.Name;
+
+          std::cout<<"[DEBUG] [downloadObject] Getting object with full path: "<<fullPath <<" apass is "<< apass <<std::endl;
+
+
+        return downloadObject_db(RunNumber, apass, fullPath, object.ObjectType,ModuleName);
+    }
+
 
     TH1* CCDBServer::downloadObject_db(std::string RunNumber, std::string PassName, std::string fullPath, std::string ObjectType, std::string module_name) const{
         
         //string module_name = "tracks";
+        std::cout<<"getting timestamp for: RunNumber= "<< RunNumber << " PassName= "<< PassName << " module_name= "<< module_name <<std::endl;
          long timestamp = myDataBase->getTimestamp(RunNumber,PassName,module_name);
+         
          std::cout<<"Downloading object with timestamp: "<<timestamp<<std::endl;
          return downloadObject(RunNumber,PassName,timestamp,fullPath,ObjectType);
 
@@ -87,7 +127,7 @@ long CCDBServer::getNROFs (const string& RunNumber) const{
       long nRofs = -1;
 
       string ModuleName = dataBaseType=="qc" ? "ITSTrackTask" : "Tracks";
-      std::string fullPath = dataBaseType +  "/ITS/MO/"+ ModuleName + "/AssociatedClusterFraction";
+      std::string fullPath = "/ITS/MO/"+ ModuleName + "/AssociatedClusterFraction";
 
 
       TH1D *hClustersPerROF = (TH1D*) downloadObject_db(RunNumber, "", fullPath, "TH1", "tracks");

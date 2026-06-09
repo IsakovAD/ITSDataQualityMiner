@@ -22,14 +22,13 @@ int main(int argc, char** argv){
         ReadParams(argc, argv);
 
         AssyncProcessor processor(inputPath);
+        std::cout<<"Starting QA"<<std::endl;
         processor.StartQA();
+        std::cout<<"Done! exiting"<<std::endl;
 
         //TO-DO: add tracking of faulty cases
         return 0;
-
-
-
-}
+};
 
 
 
@@ -64,5 +63,5 @@ int ReadParams(int argc, char** argv){
     inputPath = vm["input"].as<std::string>();
     outputPath = vm["output"].as<std::string>();
 
-
+    return 0;
 }

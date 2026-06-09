@@ -1,0 +1,135 @@
+{
+  "isEnabled": "0",	
+  "Task": "ITSClusterTask",
+  "Path": "General/General_Occupancy",
+  "ObjectType": "TH2",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+},
+{
+  "isEnabled": "0",
+  "Task": "ITSClusterTask",
+  "Path": "Layer0/AverageClusterSize",
+  "ObjectType": "TH2",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+},
+{
+  "isEnabled": "0",
+  "Task": "ITSClusterTask",
+  "Path": "Layer1/AverageClusterSize",
+  "ObjectType": "TH2",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+},
+{
+  "isEnabled": "0",
+  "Task": "ITSClusterTask",
+  "Path": "Layer2/AverageClusterSize",
+  "ObjectType": "TH2",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+}, 
+{
+  "isEnabled": "0",
+  "Task": "ITSClusterTask",
+  "Path": "Layer3/AverageClusterSize",
+  "ObjectType": "TH2",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+},
+{
+  "isEnabled": "0",
+  "Task": "Clusters",
+  "Path": "Layer4/AverageClusterSize",
+  "ObjectType": "TH2",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+},
+{
+  "isEnabled": "0",
+  "Task": "ITSClusterTask",
+  "Path": "Layer5/AverageClusterSize",
+  "ObjectType": "TH2",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+},
+{
+  "isEnabled": "0",
+  "Task": "ITSClusterTask",
+  "Path": "Layer6/AverageClusterSize",
+  "ObjectType": "TH2",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+},
+{
+  "isEnabled": "1",
+  "Task": "ITSClusterTask",
+  "Path": "avg_ClusterOccupation",
+  "ObjectType": "TH2",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+},
+{
+  "isEnabled": "1",
+  "Task": "ITSClusterTask",
+  "Path": "avg_AverageClusterSize",
+  "ObjectType": "TH2",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+},
+{
+  "isEnabled": "1",
+  "Task": "ITSTrackTask",
+  "Path": "AngularDistribution",
+  "ObjectType": "TH2",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+},
+{
+  "isEnabled": "1",
+  "Task": "ITSTrackTask",
+  "Path": "EtaDistribution",
+  "ObjectType": "TH1",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+},
+{
+  "isEnabled": "1",
+  "Task": "ITSTrackTask",
+  "Path": "PhiDistribution",
+  "ObjectType": "TH1",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+},
+{
+  "isEnabled": "1",
+  "Task": "ITSTrackTask",
+  "Path": "VertexZ",
+  "ObjectType": "TH1",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+},
+{
+  "isEnabled": "1",
+  "Task": "ITSTrackTask",
+  "Path": "NClusters",
+  "ObjectType": "TH1",
+  "isDoROF_norm": "0",
+  "isLogy": "0",
+  "isLogx": "0"
+}

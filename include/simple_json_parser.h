@@ -4,12 +4,16 @@
 #include<unordered_map>
 #include <algorithm>
 #include<fstream>
+#include <vector>
+#include <string>
+
+
 
 using namespace std;
 
 
-string trim(const std::string& str) {
-    string result = str;
+std::string trim(const std::string& str) {
+    std::string result = str;
     result.erase(std::remove_if(result.begin(), result.end(), [](char c) {
         return c == ',' || c == '\"' || c == ' ';
     }), result.end());
@@ -17,16 +21,16 @@ string trim(const std::string& str) {
 }
 
 
-vector<unordered_map<string, string>> parseJSON(const std::string& filename) {
-    ifstream file(filename);
+std::vector<std::unordered_map<std::string, std::string>> parseJSON(const std::string& filename) {
+    std::ifstream file(filename);
     if (!file.is_open()) {
-        throw runtime_error("Could not open JSON file "+ filename);
+        throw std::runtime_error("Could not open JSON file "+ filename);
     }
 
-    vector<unordered_map<string, string>> groups;
-    unordered_map<string, string> current_group;
+    std::vector<std::unordered_map<std::string, std::string>> groups;
+    std::unordered_map<std::string, std::string> current_group;
 
-    string line;
+    std::string line;
     bool in_group = false;  // Track if we're inside a group
 
     while (getline(file, line)) {
@@ -47,8 +51,8 @@ vector<unordered_map<string, string>> parseJSON(const std::string& filename) {
           auto colon_pos = line.find(':');
           if (colon_pos == std::string::npos) continue;
 
-          string key = trim(line.substr(0, colon_pos));
-          string value = trim(line.substr(colon_pos + 1));
+          std::string key = trim(line.substr(0, colon_pos));
+          std::string value = trim(line.substr(colon_pos + 1));
           if (!key.empty()) {
                 current_group[key] = value;
           }

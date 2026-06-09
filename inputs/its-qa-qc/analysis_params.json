@@ -1,0 +1,9 @@
+{
+  "run_list": "runs_O2_6820_LHC23k4i_apass4-LHC23.txt",
+  "DataType_old": "qc_async",
+  "DataType_new": "qc_mc",
+  "DataPass_old": "apass4",
+  "DataPass_new": "passMC",
+  "MCPeriod_old": " ",
+  "MCPeriod_new": " LHC23k4i "
+}

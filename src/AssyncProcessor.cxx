@@ -16,12 +16,12 @@ void AssyncProcessor::parse_parameters(const string &json_file_path) {
     Data2Type = params.at("DataType_new");
     Data1Pass = params.at("DataPass_old");
     Data2Pass = params.at("DataPass_new");
-
-    PeriodName1 = params.at("MCPeriod_old");
-    PeriodName2 = params.at("MCPeriod_new");
+    
+    MCPeriodName1 = params.at("MCPeriod_old");
+    MCPeriodName2 = params.at("MCPeriod_new");
 
     //[TO-DO] error checks on wrong json format;
-    //cout<<"Starting Analysis with: data_path= "<<data_path << " Data Type old: "<< Data1Type<< " Data Type new: "<< Data2Type << " Pass old: "<< Data1Pass << " Pass new: "<<Data2Pass << " MC period old: "<< PeriodName1 << " MC period new: "<< PeriodName2 <<endl; 
+    cout<<"============= Starting Analysis with: data_path= "<<data_path << " Data Type old: "<< Data1Type<< " Data Type new: "<< Data2Type << " Pass old: "<< Data1Pass << " Pass new: "<<Data2Pass << " MC period old: "<< MCPeriodName1 << " MC period new: "<< MCPeriodName2 <<endl; 
   } else {
     cout << "[ERROR] can't open .json with parameters" << endl;
     exit(1);
@@ -53,6 +53,8 @@ vector<QA_object> AssyncProcessor::readObjects(const string &file_name) {
         current_object.isLogy = stoi(item);
       else if (key == "isLogx")
         current_object.isLogx = stoi(item);
+      else if (key == "isCentralBarrelCut")
+        current_object.isCentralBarrelCut = stoi(item);  
       else
         cout << "[ERROR] Wrong item in the input object list: " << key << ":"
              << item << endl;
@@ -64,17 +66,23 @@ vector<QA_object> AssyncProcessor::readObjects(const string &file_name) {
 
 void AssyncProcessor::PrepareOutputFolders(){
 
-  
-  TString outname = ((string)data_path).substr(0, data_path.size() - 4);
-  folder_name = "output/"+(string) outname; //TO-DO: generalize location of the ouput
+  std::cout<<" at the PrepareOutputFolders"<<std::endl;
+  outname = ((string)data_path).substr(0, data_path.size() - 4);
+  folder_name = "output/its-qa-qc/"+(string) outname; //TO-DO: generalize location of the ouput
 
   if (!std::filesystem::exists(folder_name))
     std::filesystem::create_directory(folder_name);
 
+  
+  std::cout<<" creating log"<<std::endl;
   std::ofstream log_file(folder_name + "/output.log", ofstream::out);
-  original_cout_buffer = std::cout.rdbuf();
 
-  std::cout.rdbuf(log_file.rdbuf());
+   std::cout<<" cout buffer creating: "<<std::endl;
+  original_cout_buffer = std::cout.rdbuf();
+   std::cout<<" connecting cout buffer to log file"<<std::endl;
+  //!!!!!!!!!!!!!!!! std::cout.rdbuf(log_file.rdbuf());
+  
+  std::cout<<"PrepareOutputFolders is finished!"<<std::endl;
 
 }
 
@@ -82,88 +90,123 @@ void AssyncProcessor::PrepareOutputFolders(){
 int AssyncProcessor::StartQA() {
 
 
-  CCDBServer server_new(Data2Type, Data2Pass, PeriodName2);
-  CCDBServer server_old(Data1Type, Data1Pass, PeriodName1);
+  string ccdb_port;
+
+  if ( Data2Type == "qc_mc") ccdb_port  = "ali-qcdbmc-gpn.cern.ch:8083";
+  else ccdb_port  = "ali-qcdb-gpn.cern.ch:8083";
+
+  //[to-do] Check if we need period and how it works with MC
+
+  CCDBServer server_new(Data2Type, ccdb_port, Data2Pass);
+
+  if ( Data1Type == "qc_mc") ccdb_port  = "ali-qcdbmc-gpn.cern.ch:8083";
+  else ccdb_port  = "ali-qcdb-gpn.cern.ch:8083";
 
 
-  vector<QA_object> vObjects_old = readObjects(Form("input/objects_%s.json", Data1Type.c_str()));
-  vector<QA_object> vObjects_new = readObjects(Form("input/objects_%s.json", Data2Type.c_str()));
+  CCDBServer server_old(Data1Type, ccdb_port, Data1Pass);
 
-  //[TO-DO] make class for TCanvass
-  int nObjects = 0, nCurrentPosition = 0, nRows = 10;
-  TCanvas *c1 = new TCanvas("c1", "c1", 0, 0, 1440, nRows * 480);
-  c1->Divide(3, nRows);
 
-  
-  for (int i = 1; i <= 3 * nRows; i++)
-    c1->cd(i)->SetRightMargin(0.15);
+  vector<QA_object> vObjects_old = readObjects(Form("inputs/its-qa-qc/objects_%s.json", Data1Type.c_str()));
+  vector<QA_object> vObjects_new = readObjects(Form("inputs/its-qa-qc/objects_%s.json", Data2Type.c_str()));
 
-  for (string run : runs) {
+
+
+ PDFBuilder *myPDF = new PDFBuilder(10, folder_name.c_str());
+
+ for (string run : runs) {
 
     cout << " ------------- run is " << run << endl;
-
+    myPDF->AddText("run "+ run);
     long nROFs_old = server_old.getNROFs(run);
     long nROFs_new = server_new.getNROFs(run);
 
 
     for (QA_object object_new : vObjects_new) {
-
       if (!object_new.isEnabled)    continue;
 
-      QA_object object_old;
+      QA_object object_old; 
       const auto it = find_if(vObjects_old.begin(), vObjects_old.end(),
                               [&object_new](const QA_object &obj) {
                                 return object_new.Name == obj.Name;
                               });
       if (it != vObjects_old.end()) object_old = *it;
       
-
-      TH1 *obj_old, *obj_new;
+      std::cout<<"[DEBUG] [before if] Downloading object: "<<object_new.Name << " old: "<<object_old.Name  << std::endl;                        
+      TH1 *hist_old, *hist_new;
       if (object_new.Name.find("avg") != string::npos) {
-        obj_old = produceAverageClusterPlot(server_old, run, object_old);
-        obj_new = produceAverageClusterPlot(server_new, run, object_new);
+        hist_old = produceAverageClusterPlot(server_old, run, object_old);
+        hist_new = produceAverageClusterPlot(server_new, run, object_new);
       } else {
-        obj_old = server_old.downloadObject(run, object_old);
-        obj_new = server_new.downloadObject(run, object_new);
+        std::cout<<"-------- [DEBUG] Downloading object old: "<<object_old.Name << std::endl;
+        hist_old = server_old.downloadObject(run, object_old);
+         std::cout<<"-------- [DEBUG] Downloading object new: "<<object_old.Name << std::endl;
+        hist_new = server_new.downloadObject(run, object_new);
       }
 
-      FormatHisto(c1->cd(nCurrentPosition * 3 + 2), obj_new, object_new, run, server_new.getApass(), nROFs_new);
-      FormatHisto(c1->cd(nCurrentPosition * 3 + 1), obj_old, object_old, run, server_old.getApass(), nROFs_old);
-      setMinMax(obj_old, obj_new);
+      //FormatHisto(c1->cd(nCurrentPosition * 3 + 2), obj_new, object_new, run, server_new.getApass(), nROFs_new);
+      //FormatHisto(c1->cd(nCurrentPosition * 3 + 1), obj_old, object_old, run, server_old.getApass(), nROFs_old);
+      
+      if ( object_old.isDoROF_norm ) doROFNormalize(hist_old,nROFs_old);
+      if ( object_new.isDoROF_norm ) doROFNormalize(hist_new,nROFs_new);
+      if (hist_old)
+        if ( object_old.Name.find("VertexZ") != string::npos) hist_old->Rebin(100);
+      
+      if (hist_new)
+        if ( object_new.Name.find("VertexZ") != string::npos) hist_new->Rebin(100);
 
-      PlotHisto(c1->cd(nCurrentPosition * 3 + 2), obj_new);
-      PlotHisto(c1->cd(nCurrentPosition * 3 + 1), obj_old);
+      //setMinMax(hist_old, hist_new); // have troubels with normalized plots!
 
-      performRatio(c1->cd(nCurrentPosition * 3 + 3), obj_new, obj_old, object_new, server_new.getApass(), server_old.getApass());
+      // perform ratio - return object 
+      // Run Check how ratio is compatible with THR
+      // if check is fine - skip object
+      // if check is bad - plot object
+
+      TH1* ratio = performRatio(hist_new, hist_old, object_old.isCentralBarrelCut);
 
 
+      string title;
 
-      //------------- operation with Canvases:
-      c1->SetTitle(Form("Run %s, %s", run.c_str(), object_new.Name.c_str()));
-      if (((nObjects + 1) % nRows == 0) || (nObjects == vObjects_new.size() * runs.size() - 1)) {
-        if ((nObjects + 1) == nRows) {
-          c1->Print(Form("%s/%s.pdf(", folder_name.c_str(), outname.Data()), "pdf");
-        } else if (nObjects == vObjects_new.size() * runs.size() - 1) continue;
-              else c1->Print(Form("%s/%s.pdf", folder_name.c_str(), outname.Data()), "pdf");
-        
-        nCurrentPosition = 0;
-        c1->Clear();
-        c1->Divide(3, nRows);
-        for (int i = 1; i <= 3 * nRows; i++)
-          c1->cd(i)->SetRightMargin(0.15);
-
-      } else {
-        nCurrentPosition++;
+      if (hist_new){
+        title = hist_new->GetTitle();
+        hist_new->SetTitle(Form("New data: %s ", 
+                      Data1Pass.size() < 2 ? "online" : Data1Pass.c_str()));
+      }
+      if (hist_old){ 
+        title = hist_old->GetTitle();
+        hist_old->SetTitle(Form("Old data: %s",
+                      Data2Pass.size() < 2 ? "online" : Data2Pass.c_str()));
       }
 
-      nObjects++;
+      if (ratio){
+            ratio->SetTitle(Form("Ratio: %s / %s", 
+                           Data1Pass.size() < 2 ? "online" : Data1Pass.c_str(),
+                           Data2Pass.size() < 2 ? "online" : Data2Pass.c_str()));
+      }
+
+      string analysis_result = title + ":      " + doCompare(hist_new, hist_old, 0.01, object_old.isCentralBarrelCut);
+      std::cout<<"================= result is: "<< analysis_result << std::endl;
+      if (analysis_result.size()>0) {
+        //myPDF->AddTitle(result);
+        //myPDF->AddDraw({obj_new,obj_old,ratio},result);
+        myPDF->AddDraw({
+              {hist_new, object_new},
+              {hist_old, object_old},
+              {ratio,   object_new}   
+        }, analysis_result, run);
+
+      }
+      //myPDF->AddDraw({obj_new});
+
     }
   }
+    myPDF->close();
 
-  c1->Print(Form("%s/%s.pdf)", folder_name.c_str(), outname.Data()), "pdf");
+
+
+
 
   std::ofstream outfile(
-      Form("%s/%s_out.txt", folder_name.c_str(), outname.Data()));
+      Form("%s/%s_out.txt", folder_name.c_str(), outname.c_str()));
   for (const string &run : runs) {
 
     outfile << run << endl;
@@ -172,6 +215,38 @@ int AssyncProcessor::StartQA() {
   std::cout.rdbuf(original_cout_buffer);
   return 1;
 }
+
+
+string AssyncProcessor::doCompare(TH1* obj_new, TH1* obj_old, double ratio_thr, bool isCentralBarrelCut ){
+
+  string result = "";
+  if (!obj_new || !obj_old){
+    std::cout<<"[doCompare] empty objects, skipping"<<std::endl;
+    return "One of objects missing";
+
+
+  }
+  TH1* hRatio = performRatio(obj_new, obj_old,isCentralBarrelCut);
+
+  auto [xMin, yMin, xMax, yMax] = getMinMaxCoordinates(hRatio);
+
+  std::cout<<"comparing Min= "<< hRatio->GetMinimum(0) << " Max= "<< hRatio->GetMaximum() << " with THR: "<< ratio_thr << std::endl;
+
+  if (hRatio->InheritsFrom("TH2")) {
+    if (1-hRatio->GetMinimum(0) > ratio_thr) result += string( Form("   Larger by %.2f at [%.1f,%.1f]",hRatio->GetMinimum(0),xMin, yMin));
+    if (hRatio->GetMaximum()-1 > ratio_thr)  result += string( Form("    Smaller by %.2f at [%.1f,%.1f]",hRatio->GetMaximum(),xMax, yMax));
+
+  } else {
+    if (1-hRatio->GetMinimum(0) > ratio_thr) result += string( Form("   Larger by %.2f at [%.1f]",hRatio->GetMinimum(0),xMin));
+    if (hRatio->GetMaximum()-1 > ratio_thr)  result += string( Form("    Smaller by %.2f at [%.1f]",hRatio->GetMaximum(),xMax));
+
+  }
+
+
+ 
+  return result;
+
+} 
 
 
 
@@ -212,6 +287,10 @@ TH2D *AssyncProcessor::produceAverageClusterPlot(const CCDBServer &server,
                                              const TString &run,
                                              QA_object object) {
 
+
+  const int nBinsX[NLayer] = {9,9,9,16,16,28,28};
+
+
   TString in_name = object.Name;
   TH2D *obj = new TH2D("obj", in_name.Data(), 24, -12, 12, 14, 0, 14);
   obj->SetStats(0);
@@ -233,11 +312,11 @@ TH2D *AssyncProcessor::produceAverageClusterPlot(const CCDBServer &server,
       return nullptr;
     }
 
-    for (int iStave = 0; iStave < mNStaves[iLayer]; iStave++) {
+    for (int iStave = 0; iStave < NStaves[iLayer]; iStave++) {
 
-      int ybin = iStave < (mNStaves[iLayer] / 2) ? 7 + iLayer + 1 : 7 - iLayer;
+      int ybin = iStave < (NStaves[iLayer] / 2) ? 7 + iLayer + 1 : 7 - iLayer;
       int xbin =
-          12 - mNStaves[iLayer] / 4 + 1 + (iStave % (mNStaves[iLayer] / 2));
+          12 - NStaves[iLayer] / 4 + 1 + (iStave % (NStaves[iLayer] / 2));
       double sum = 0;
       for (int ix = 1; ix <= nBinsX[iLayer]; ix++) {
         sum += hClusterLayer->GetBinContent(ix, iStave + 1);

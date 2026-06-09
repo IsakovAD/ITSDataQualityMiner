@@ -2,10 +2,15 @@
 
 #include <TH1.h>
 #include <TH2.h>
-
+#include <TText.h>
 #include <TStyle.h>
 
 #include "QAObject.h"
+
+    const int NLayer = 7;
+    const int NStaves[7] = { 12, 16, 20, 24, 30, 42, 48 };
+
+
 
 void setStyle() {
   gStyle->SetLineScalePS(1);
@@ -37,9 +42,12 @@ void setMinMax(TH1 *obj1, TH1 *obj2) {
   }
 }
 
+void doROFNormalize(TH1 *obj,const long hROFs){
+  obj->Scale(1./hROFs);
+}
+
 void FormatHisto(TVirtualPad *c1, TH1 *obj,
-                              const QA_object &object, const string &run,
-                              const TString apass, const long hROFs) {
+                              const QA_object &object) {
 
   if (!obj) {
     std::cout << "[ERROR] Null pointer passed to FormatHisto! histograms "
@@ -48,17 +56,64 @@ void FormatHisto(TVirtualPad *c1, TH1 *obj,
     return;
   }
 
-  obj->SetTitle(Form("Run%s %s ", run.c_str(),
-                     apass.Length() < 2 ? "online" : apass.Data()));
-  	  if ( object.Name.find("VertexZ") != string::npos) obj->Rebin(100);
+ 
 
 
-          if ( object.isDoROF_norm ) obj->Scale(1./hROFs);
+         
           if ( object.isLogy) c1->SetLogy();
           if ( object.isLogx) c1->SetLogx();
           if ( !obj->InheritsFrom("TH2")) c1->SetGridy();
   
 }
+
+
+string TokenizePath(const string &input, const char &token) {
+
+  string out = input;
+  while (out.find(token) != std::string::npos) {
+    out = out.substr(out.find(token) + 1);
+  }
+  return out;
+}
+
+
+TH1* performRatio(TH1 *obj_new, TH1 *obj_old, bool isDoCentralBarrelCut) {
+
+  if (!obj_new || !obj_old) {
+    std::cout << "[ERROR] Null pointer passed to performRatio! ratio "
+                 "histograms will not be calculated"
+              << std::endl;
+    return nullptr;
+  }
+
+  TH1 *obj_ratio;
+  if (obj_old->InheritsFrom("TH2"))
+    obj_ratio = (TH2 *)obj_old->Clone("ratio");
+  else
+    obj_ratio = (TH1 *)obj_old->Clone("ratio");
+
+  for (int ix = 1; ix <= obj_new->GetNbinsX(); ix++)
+    for (int iy = 1; iy <= obj_new->GetNbinsY(); iy++) {
+      if (obj_new->GetBinContent(ix, iy) == 0)
+        obj_ratio->SetBinContent(ix, iy, -0.01);
+      else
+        obj_ratio->SetBinContent(ix, iy,
+                                 obj_ratio->GetBinContent(ix, iy) /
+                                     obj_new->GetBinContent(ix, iy));
+    }
+
+  obj_ratio->Scale(obj_new->Integral() / obj_old->Integral());
+     std::cout<<"0000000000000000000000000000000000000000  isDoCentralBarrelCut = " << isDoCentralBarrelCut<<std::endl;
+  if (isDoCentralBarrelCut) {
+    std::cout<<"0000000000000000000000000000000000000000  setting new range user 00000000000000000000"<<std::endl;
+      obj_ratio->GetXaxis()->SetRangeUser(-1.2, 1.2);
+  }
+  
+  return obj_ratio;
+
+}
+
+
 
 
 
@@ -90,6 +145,7 @@ void performRatio(TVirtualPad *c1, TH1 *obj_new, TH1 *obj_old,
     }
 
   obj_ratio->Scale(obj_new->Integral() / obj_old->Integral());
+
   if (!obj_old->InheritsFrom("TH2")) {
     c1->SetGridy();
   }
@@ -103,6 +159,8 @@ void performRatio(TVirtualPad *c1, TH1 *obj_new, TH1 *obj_old,
 
   obj_ratio->Draw("text,colz");
 }
+
+
 
 void PlotHisto(TVirtualPad *c1, TH1 *obj) {
 
@@ -126,7 +184,14 @@ void PlotHisto(TVirtualPad *c1, TH1 *obj) {
   }
 
   if (obj->InheritsFrom("TH2")) {
-    obj->Draw("colz");
+    
+                // anything <= this draws as white
+     if ( std::string(obj->GetTitle()).find("Ratio") != string::npos) { 
+      obj->SetMinimum(1e-10);
+      obj->Draw("text,colz");
+     }
+     else obj->Draw("colz");
+
   } else {
     obj->Draw("hist");
   }
@@ -135,12 +200,61 @@ void PlotHisto(TVirtualPad *c1, TH1 *obj) {
 
 
 
+struct BinCoordinates {
+    double xMin, yMin;  // yMin only meaningful for TH2
+    double xMax, yMax;  // yMax only meaningful for TH2
+};
 
-string TokenizePath(const string &input, const char &token) {
+BinCoordinates getMinMaxCoordinates(TH1* hist) {
+    
+    BinCoordinates result{0, 0, 0, 0};
 
-  string out = input;
-  while (out.find(token) != std::string::npos) {
-    out = out.substr(out.find(token) + 1);
-  }
-  return out;
+    // get active range
+    int firstBinX = hist->GetXaxis()->GetFirst();
+    int lastBinX  = hist->GetXaxis()->GetLast();
+
+    // maximum - ROOT's GetMaximumBin respects SetRangeUser
+    int maxBin = hist->GetMaximumBin();
+    int binX, binY, binZ;
+    hist->GetBinXYZ(maxBin, binX, binY, binZ);
+    result.xMax = hist->GetXaxis()->GetBinCenter(binX);
+    result.yMax = hist->GetYaxis()->GetBinCenter(binY);
+
+    if (hist->InheritsFrom("TH2")) {
+        TH2* h2 = (TH2*)hist;
+
+        int firstBinY = h2->GetYaxis()->GetFirst();
+        int lastBinY  = h2->GetYaxis()->GetLast();
+
+        int minBinX = -1, minBinY = -1;
+        double minContent = std::numeric_limits<double>::max();
+        for (int ix = firstBinX; ix <= lastBinX; ix++)  // respects range
+            for (int iy = firstBinY; iy <= lastBinY; iy++) {
+                double val = h2->GetBinContent(ix, iy);
+                if (val > 0 && val < minContent) {
+                    minContent = val;
+                    minBinX = ix;
+                    minBinY = iy;
+                }
+            }
+        result.xMin = h2->GetXaxis()->GetBinCenter(minBinX);
+        result.yMin = h2->GetYaxis()->GetBinCenter(minBinY);
+
+    } else {
+        int minBinX = -1;
+        double minContent = std::numeric_limits<double>::max();
+        for (int ix = firstBinX; ix <= lastBinX; ix++) {  // respects range
+            double val = hist->GetBinContent(ix);
+            if (val > 0 && val < minContent) {
+                minContent = val;
+                minBinX = ix;
+            }
+        }
+        result.xMin = hist->GetXaxis()->GetBinCenter(minBinX);
+        result.yMin = 0;
+    }
+
+    return result;
 }
+
+

@@ -11,6 +11,10 @@
 #include <TSystem.h>
 #include "CCDBDataBase.h"
 
+#include "QAObject.h" 
+
+
+
 
 
 struct CCDB_item{
@@ -33,17 +37,19 @@ struct QCModule{
 class CCDBServer{
     public:
 
-    CCDBServer(std::string dataBaseType, std::string ccdb_port, std::string apass) : dataBaseType(dataBaseType), ccdb_port(ccdb_port), apass(apass) {
-    ccdbApi.init(ccdb_port);
+    CCDBServer(std::string dataBaseType_, std::string ccdb_port_, std::string apass_) : dataBaseType(dataBaseType_), ccdb_port(ccdb_port_), apass(apass_) {
+    ccdbApi.init(ccdb_port_);
 
-    GetModulesList(dataBaseType);
+    GetModulesList(dataBaseType_);
 
 
 
 
     std::cout<<"updating data base: "<<std::endl;
-    myDataBase = new CCDBDataBase("../inputs/db_"+dataBaseType+".db");
+    myDataBase = new CCDBDataBase("./inputs/database/db_"+dataBaseType_+".db");
     updateDataBase();
+
+    std::cout<<"========================== created data base with  dataBaseType= "<< dataBaseType_ << " apass= "<<apass_ << " ccdb_port= "<< ccdb_port_<<std::endl; 
 
     };
 
@@ -51,13 +57,19 @@ class CCDBServer{
 
     TH1* downloadObject_db(std::string RunNumber, std::string PassName, std::string fullPath, std::string ObjectType, std::string module_name) const;
 
+    TH1* downloadObject(string RunNumber, QA_object object) const;
+
+
     std::vector<std::string> getTimeStamps(std::string objectName, std::string targetRun, std::string targetPass);
 
     std::string GetObjectList(std::string target_object);
 
     long getNROFs (const string& RunNumber) const;
 
-
+    string getApass() const {return apass;}
+    string getPort() const {return ccdb_port;}
+    bool getIsMC() const {return dataBaseType=="mc";}       
+    
     void GetModulesList(std::string dataBaseType){
             //modules.push_back(QCModule("tracks","/ITS/MO/Tracks/NClustersPerTrackEta")); //To-Do: should be configurable by json
         std::string config_path = "../inputs/db_module.conf";

@@ -27,8 +27,9 @@ public:
         return chipid < N_LANES_IB ? chipid : isFirstOfLane(chipid - 6);
     } 
 
-
+    const int NLayer = 7;
     const int NStaves[7] = { 12, 16, 20, 24, 30, 42, 48 };
+    
     static constexpr int StaveBoundary[8] = { 0, 12, 28, 48, 72, 102, 144, 192 };
     const int NZElementsInHalfStave[7] =  {9,9,9, 4, 4, 7, 7};
     const int NSegmentsStave[7] = {1, 1, 1, 4, 4, 4, 4};

@@ -7,6 +7,7 @@
 #include <stdexcept>
 #include <sstream>
 
+#include <algorithm>
 
 
 class CCDBDataBase {
@@ -15,7 +16,7 @@ public:
     explicit CCDBDataBase(const std::string& db_path){
          //to-do: do we really need ccdb_ object as part of this class?
 
-
+        std::cout<<"Data base at: "<< db_path <<std::endl;
         if (sqlite3_open(db_path.c_str(), &db_) != SQLITE_OK)
             throw std::runtime_error("Cannot open DB: " + std::string(sqlite3_errmsg(db_)));
 
@@ -23,11 +24,25 @@ public:
         std::cout<<"creating table!: "<<std::endl;
         createTable();
         
-        std::cout<<"done"<<std::endl;
+        std::cout<<"done, we have DB with "<< getCount() << " entries" <<std::endl;
 
     }
 
     ~CCDBDataBase() { sqlite3_close(db_); }
+
+
+   long getCount() {
+    const char* sql = "SELECT COUNT(*) FROM timestamps;";
+    sqlite3_stmt* stmt = nullptr;
+    sqlite3_prepare_v2(db_, sql, -1, &stmt, nullptr);
+    
+    long result = 0;
+    if (sqlite3_step(stmt) == SQLITE_ROW)
+        result = sqlite3_column_int64(stmt, 0);
+    
+    sqlite3_finalize(stmt);
+    return result;
+}
 
     void upsert(const std::string& run,
                 const std::string& apass,
@@ -86,6 +101,12 @@ public:
                       const std::string& apass,
                       const std::string& module_name) {
 
+
+        string module_name_ = module_name;
+        std::transform(module_name_.begin(), module_name_.end(), module_name_.begin(), ::tolower);
+
+        std::cout<<"[CCDBDataBase] downloading timestamp for run: " <<run << " apass= "<< apass << " module: "<< module_name_ <<std::endl;
+
         const char* sql =
             "SELECT timestamp FROM timestamps "
             "WHERE run_number=? AND apass=? AND module_name=?;";
@@ -94,7 +115,7 @@ public:
         sqlite3_prepare_v2(db_, sql, -1, &stmt, nullptr);
         sqlite3_bind_text(stmt, 1, run.c_str(),         -1, SQLITE_STATIC);
         sqlite3_bind_text(stmt, 2, apass.c_str(),       -1, SQLITE_STATIC);
-        sqlite3_bind_text(stmt, 3, module_name.c_str(), -1, SQLITE_STATIC);
+        sqlite3_bind_text(stmt, 3, module_name_.c_str(), -1, SQLITE_STATIC);
 
         long result = -1;
         if (sqlite3_step(stmt) == SQLITE_ROW)
