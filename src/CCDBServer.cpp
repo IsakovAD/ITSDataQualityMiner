@@ -12,7 +12,7 @@ std::string CCDBServer::GetObjectList(std::string objectName){
 
     std::string output = ccdbApi.list(objectName.c_str(),false,"text/plain"); 
 
-        std::cout<<"for object name: "<<objectName << " return has length of: "<< output.size()<<std::endl; 
+        std::cout<<"[INFO][CCDBServer] for object name: "<<objectName << " server returned response with length of: "<< output.size()<<std::endl; 
 
     return output;
 

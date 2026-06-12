@@ -44,57 +44,79 @@ public:
     return result;
 }
 
-    void upsert(const std::string& run,
-                const std::string& apass,
-                const std::string& module_name,
-                long timestamp) {
+void upsert(const std::string& run,
+            const std::string& apass,
+            const std::string& module_name,
+            long timestamp,
+            long created) {
 
-        const char* sql =
-            "INSERT INTO timestamps (run_number, apass, module_name, timestamp) "
-            "VALUES (?, ?, ?, ?) "
-            "ON CONFLICT(run_number, apass, module_name) "
-            "DO UPDATE SET timestamp=excluded.timestamp;";
+    std::string module_name_ = module_name;
+    std::transform(module_name_.begin(), module_name_.end(),
+                   module_name_.begin(), ::tolower);
 
-        sqlite3_stmt* stmt;
-        sqlite3_prepare_v2(db_, sql, -1, &stmt, nullptr);
-        sqlite3_bind_text(stmt, 1, run.c_str(),         -1, SQLITE_STATIC);
-        sqlite3_bind_text(stmt, 2, apass.c_str(),       -1, SQLITE_STATIC);
-        sqlite3_bind_text(stmt, 3, module_name.c_str(), -1, SQLITE_STATIC);
-        sqlite3_bind_int64(stmt, 4, timestamp);
+    const char* sql =
+        "INSERT INTO timestamps (run_number, apass, module_name, timestamp, created) "
+        "VALUES (?, ?, ?, ?, ?) "
+        "ON CONFLICT(run_number, apass, module_name) DO UPDATE SET "
+        "  timestamp = excluded.timestamp, "
+        "  created   = excluded.created "
+        "WHERE excluded.created > timestamps.created;";
 
-        if (sqlite3_step(stmt) != SQLITE_DONE)
-            std::cerr << "Upsert failed: " << sqlite3_errmsg(db_) << "\n";
-
-        sqlite3_finalize(stmt);
+    sqlite3_stmt* stmt = nullptr;
+    if (sqlite3_prepare_v2(db_, sql, -1, &stmt, nullptr) != SQLITE_OK) {
+        std::cerr << "[upsert] prepare failed: " << sqlite3_errmsg(db_) << "\n";
+        return;
     }
+    sqlite3_bind_text (stmt, 1, run.c_str(),          -1, SQLITE_STATIC);
+    sqlite3_bind_text (stmt, 2, apass.c_str(),        -1, SQLITE_STATIC);
+    sqlite3_bind_text (stmt, 3, module_name_.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_int64(stmt, 4, timestamp);
+    sqlite3_bind_int64(stmt, 5, created);
+
+    if (sqlite3_step(stmt) != SQLITE_DONE)
+        std::cerr << "[upsert] step failed: " << sqlite3_errmsg(db_) << "\n";
+
+    sqlite3_finalize(stmt);
+}
 
 
-    long getNewestTimestamp(const std::string& module)
-    {
-        const char* sql = "SELECT MAX(timestamp) FROM timestamps WHERE module_name=?;";
-        sqlite3_stmt* stmt = nullptr;
+long getNewestTimestamp(const std::string& module) {
+    std::string module_ = module;
+    std::transform(module_.begin(), module_.end(), module_.begin(), ::tolower);
 
-        if (sqlite3_prepare_v2(db_, sql, -1, &stmt, nullptr) != SQLITE_OK) {
-            throw std::runtime_error("Failed to prepare statement");
-        }
-        sqlite3_bind_text(stmt, 1, module.c_str(),         -1, SQLITE_STATIC);
+    const char* sql = "SELECT MAX(created) FROM timestamps WHERE module_name=?;";
+    sqlite3_stmt* stmt = nullptr;
+    if (sqlite3_prepare_v2(db_, sql, -1, &stmt, nullptr) != SQLITE_OK)
+        throw std::runtime_error(std::string("getNewestTimestamp prepare failed: ")
+                                 + sqlite3_errmsg(db_));
+    sqlite3_bind_text(stmt, 1, module_.c_str(), -1, SQLITE_STATIC);
 
+    long result = -1;
+    if (sqlite3_step(stmt) == SQLITE_ROW &&
+        sqlite3_column_type(stmt, 0) != SQLITE_NULL)   // MAX on empty set = NULL
+        result = sqlite3_column_int64(stmt, 0);
 
-        long result = -1;
-        int rc = sqlite3_step(stmt);
-        if (rc == SQLITE_ROW) {
-            if (sqlite3_column_type(stmt, 0) != SQLITE_NULL) {
-                result = sqlite3_column_int64(stmt, 0);
-            }
-            // else: table is empty → result stays std::nullopt
-        } else {
-            sqlite3_finalize(stmt);
-            throw std::runtime_error("Failed to execute statement");
-        }
+    sqlite3_finalize(stmt);
+    return result;   // -1 = nothing stored for this module yet
+}
 
-        sqlite3_finalize(stmt);
-        return result;
+void setNewestTimestamp(const std::string& module, long created) {
+    const char* sql =
+        "INSERT INTO sync_cursor (module_name, last_created) VALUES (?, ?) "
+        "ON CONFLICT(module_name) DO UPDATE SET last_created=excluded.last_created "
+        "WHERE excluded.last_created > sync_cursor.last_created;";
+    sqlite3_stmt* stmt = nullptr;
+    if (sqlite3_prepare_v2(db_, sql, -1, &stmt, nullptr) != SQLITE_OK) {
+        std::cerr << "[setNewestTimestamp] prepare failed: " << sqlite3_errmsg(db_) << "\n";
+        return;
     }
+    sqlite3_bind_text(stmt, 1, module.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_int64(stmt, 2, created);
+    if (sqlite3_step(stmt) != SQLITE_DONE)
+        std::cerr << "[setNewestTimestamp] step failed: " << sqlite3_errmsg(db_) << "\n";
+    sqlite3_finalize(stmt);
+}
+
 
     // ── Query a single timestamp ───────────────────────────────────
     long getTimestamp(const std::string& run,
@@ -161,23 +183,46 @@ public:
         return getTimestamp(run, apass, module_name) != -1;
     }
 
+
+
+
 private:
     sqlite3* db_ = nullptr;
-    void createTable() {
-        const char* sql =
-            "CREATE TABLE IF NOT EXISTS timestamps ("
-            "  run_number  TEXT NOT NULL,"
-            "  apass       TEXT NOT NULL,"
-            "  module_name TEXT NOT NULL,"
-            "  timestamp   INTEGER NOT NULL,"
-            "  PRIMARY KEY (run_number, apass, module_name)"
-            ");";
+    // void createTable() {
+    //     const char* sql =
+    //         "CREATE TABLE IF NOT EXISTS timestamps ("
+    //         "  run_number  TEXT NOT NULL,"
+    //         "  apass       TEXT NOT NULL,"
+    //         "  module_name TEXT NOT NULL,"
+    //         "  timestamp   INTEGER NOT NULL,"
+    //         "  PRIMARY KEY (run_number, apass, module_name)"
+    //         ");";
 
-        char* err = nullptr;
-        if (sqlite3_exec(db_, sql, nullptr, nullptr, &err) != SQLITE_OK) {
-            std::string msg = err;
-            sqlite3_free(err);
-            throw std::runtime_error("Failed to create table: " + msg);
-        }
+    //     char* err = nullptr;
+    //     if (sqlite3_exec(db_, sql, nullptr, nullptr, &err) != SQLITE_OK) {
+    //         std::string msg = err;
+    //         sqlite3_free(err);
+    //         throw std::runtime_error("Failed to create table: " + msg);
+    //     }
+    // }
+
+
+void createTable() {
+    const char* sql =
+        "CREATE TABLE IF NOT EXISTS timestamps ("
+        "  run_number  TEXT NOT NULL,"
+        "  apass       TEXT NOT NULL,"
+        "  module_name TEXT NOT NULL,"
+        "  timestamp   INTEGER NOT NULL,"   // validity → used to download
+        "  created     INTEGER NOT NULL,"   // upload time → freshness key
+        "  PRIMARY KEY (run_number, apass, module_name)"
+        ");";
+
+    char* err = nullptr;
+    if (sqlite3_exec(db_, sql, nullptr, nullptr, &err) != SQLITE_OK) {
+        std::string msg = err;
+        sqlite3_free(err);
+        throw std::runtime_error("Failed to create table: " + msg);
     }
+}
 };

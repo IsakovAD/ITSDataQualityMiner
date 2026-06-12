@@ -29,4 +29,4 @@ void performRatio(TVirtualPad *c1, TH1 *obj_new, TH1 *obj_old,
                                QA_object object, TString pass_new,
                                TString pass_old);
 void PlotHisto(TVirtualPad *c1, TH1 *obj); 
-BinCoordinates getMinMaxCoordinates(TH1* hist);
+BinCoordinates getMinMaxCoordinates(const TH1* hist);

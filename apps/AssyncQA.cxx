@@ -23,7 +23,7 @@ int main(int argc, char** argv){
         int rc = ReadParams(argc, argv);
         if (rc != 0) return rc;
 
-        AssyncProcessor processor(inputPath);
+        AssyncProcessor processor(inputPath,0.05);
         std::cout<<"Starting QA"<<std::endl;
         processor.StartQA();
         std::cout<<"Done! exiting"<<std::endl;

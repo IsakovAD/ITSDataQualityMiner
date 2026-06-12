@@ -103,52 +103,6 @@ TH1* performRatio(TH1 *obj_old, TH1 *obj_new, bool isDoCentralBarrelCut) {
 
 
 
-
-void performRatio(TVirtualPad *c1, TH1 *obj_new, TH1 *obj_old,
-                               QA_object object, TString pass_new,
-                               TString pass_old) {
-
-  if (!obj_new || !obj_old) {
-    std::cout << "[ERROR] Null pointer passed to performRatio! ratio "
-                 "histograms will not be calculated"
-              << std::endl;
-    return;
-  }
-
-  TH1 *obj_ratio;
-  if (obj_old->InheritsFrom("TH2"))
-    obj_ratio = (TH2 *)obj_old->Clone("ratio");
-  else
-    obj_ratio = (TH1 *)obj_old->Clone("ratio");
-
-  for (int ix = 1; ix <= obj_new->GetNbinsX(); ix++)
-    for (int iy = 1; iy <= obj_new->GetNbinsY(); iy++) {
-      if (obj_new->GetBinContent(ix, iy) == 0)
-        obj_ratio->SetBinContent(ix, iy, -0.01);
-      else
-        obj_ratio->SetBinContent(ix, iy,
-                                 obj_ratio->GetBinContent(ix, iy) /
-                                     obj_new->GetBinContent(ix, iy));
-    }
-
-  obj_ratio->Scale(obj_new->Integral() / obj_old->Integral());
-
-  if (!obj_old->InheritsFrom("TH2")) {
-    c1->SetGridy();
-  }
-
-  std::string obj_title = TokenizePath(object.Name, '/');
-
-  obj_ratio->SetTitle(Form("%s: %s / %s", obj_title.c_str(),
-                           pass_old.Length() < 2 ? "online" : pass_old.Data(),
-                           pass_new.Length() < 2 ? "online" : pass_new.Data()));
-  obj_ratio->SetStats(0);
-
-  obj_ratio->Draw("text,colz");
-}
-
-
-
 void PlotHisto(TVirtualPad *c1, TH1 *obj) {
 
    c1->cd();	
@@ -188,7 +142,7 @@ void PlotHisto(TVirtualPad *c1, TH1 *obj) {
 
 
 
-BinCoordinates getMinMaxCoordinates(TH1* hist) {
+BinCoordinates getMinMaxCoordinates(const TH1* hist) {
     
     BinCoordinates result{0, 0, 0, 0};
 

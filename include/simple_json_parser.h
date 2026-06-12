@@ -9,7 +9,6 @@
 
 
 
-using namespace std;
 
 
 std::string trim(const std::string& str) {
