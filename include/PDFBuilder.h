@@ -27,6 +27,9 @@ class PDFBuilder{
 
 
 void AddDraw(std::vector<std::pair<TH1*,QA_object>> inputs, const std::string& title, const std::string run) {
+    
+    //inputs are owner in the mother class - leak is intentional
+       
     TPad* pad = (TPad*)c1->cd(CurrentRow + 1);
     pad->Draw();
 

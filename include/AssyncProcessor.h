@@ -40,7 +40,6 @@ class AssyncProcessor{
 	private:
         string folder_name;
         string outname;
-        std::streambuf *original_cout_buffer;
         std::vector<string> runs;
         std::ofstream mReportFile;
         double ratio_thr = 0.05;

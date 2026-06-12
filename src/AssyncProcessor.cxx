@@ -83,8 +83,6 @@ void AssyncProcessor::PrepareOutputFolders(){
 
   
   std::ofstream log_file(folder_name + "/output.log", std::ofstream::out);
-
-  original_cout_buffer = std::cout.rdbuf();  
   std::cout<<"PrepareOutputFolders is finished!"<<std::endl;
 
 }
@@ -104,7 +102,7 @@ void AssyncProcessor::formatAssyncHistogram(const QA_object& object, TH1* histog
     if ( object.Name.find("VertexZ") != string::npos) histogram->Rebin(100);
 
     histogram->SetTitle(Form("%s data: %s", type.c_str(),
-                      Data1Pass.size() < 2 ? "online" : Data1Pass.c_str()));
+                      Data1Pass.size() < 2 ? "online" : apass.c_str()));
 }
 
 int AssyncProcessor::StartQA() {
@@ -200,7 +198,6 @@ int AssyncProcessor::StartQA() {
     outfile << run << std::endl;
   }
 
-  std::cout.rdbuf(original_cout_buffer);
   return 1;
 }
 
@@ -281,6 +278,7 @@ TH2D *AssyncProcessor::produceAverageClusterPlot(const CCDBServer &server,
     if (!hClusterLayer) {
       std::cout << "[ERROR] [AssyncProcessor] can't open cluster object for average plot for Layer: "
            << iLayer << std::endl;
+      delete obj;
       return nullptr;
     }
 
