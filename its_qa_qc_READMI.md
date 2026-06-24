@@ -33,7 +33,7 @@ The ALICE O2 + QualityControl environment must be loaded before building or
 running:
 
 ```bash
-alienv enter O2/latest QualityControl/latest
+alienv enter O2/latest QualityControl/latest CMake/latest
 ```
 
 The build links against O2, QualityControl, ROOT, FairLogger, FairMQ, Boost,
