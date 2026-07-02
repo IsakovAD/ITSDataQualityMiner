@@ -28,17 +28,18 @@ int main(){
     //ali-qcdb-gpn.cern.ch:8083/qc_async/ITS/MO/Tracks/NClusters/1780762708787/PassName=apass1/RunNumber=563751/
     //ali-qcdb-gpn.cern.ch:8083/qc_async/ITS/MO/Tracks/Ntracks
     std::string RunNumber = "563751";
-    //std::string PassName = "passMC";
+    // std::string PassName = "passMC";
     std::string PassName = "apass1";
     std::string fullPath = "/ITS/MO/Tracks/Ntracks";
     std::string ObjectType = "TH1";
+    std::string periodName = "";
     std::string module = "Tracks";
 
 
 
 
     std::cout<<"Dowloading object: "<< fullPath<<std::endl;
-    TH1D* hTest = (TH1D*) myServer->downloadObject_db(RunNumber, PassName, fullPath,ObjectType, module);
+    TH1D* hTest = (TH1D*) myServer->downloadObject_db(RunNumber, PassName, fullPath,ObjectType, module,periodName);
     std::cout<<"Done! Downloaded Object "<<fullPath <<" has integral: "<< hTest->Integral()<<std::endl;
 
     return -1;
@@ -49,7 +50,7 @@ int main(){
     module = "clusters";
 
     std::cout<<"Dowloading obeject: "<< fullPath<<std::endl;
-    TH2D* hTest_2 = (TH2D*) myServer->downloadObject_db(RunNumber, PassName, fullPath,ObjectType,module);
+    TH2D* hTest_2 = (TH2D*) myServer->downloadObject_db(RunNumber, PassName, fullPath,ObjectType,module,periodName);
     std::cout<<"Done! Downloaded Object "<<fullPath <<" has integral: "<< hTest_2->Integral()<<std::endl;
 
     fullPath = "/ITS/MO/TracksMc/efficiency_phi";
@@ -57,7 +58,7 @@ int main(){
     module = "simulation";
 
     std::cout<<"Dowloading object: "<< fullPath<<std::endl;
-    TEfficiency* hTest_3 = (TEfficiency*) myServer->downloadObject_db(RunNumber, PassName, fullPath,ObjectType, module);
+    TEfficiency* hTest_3 = (TEfficiency*) myServer->downloadObject_db(RunNumber, PassName, fullPath,ObjectType, module,periodName);
     std::cout<<"Done! Downloaded Object "<<fullPath <<" has integral: "<< hTest_3->GetName()<<std::endl;
 
 

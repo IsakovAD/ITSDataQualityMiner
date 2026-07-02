@@ -29,7 +29,6 @@ class PDFBuilder{
 void AddDraw(std::vector<std::pair<TH1*,QA_object>> inputs, const std::string& title, const std::string run) {
     
     //inputs are owner in the mother class - leak is intentional
-       
     TPad* pad = (TPad*)c1->cd(CurrentRow + 1);
     pad->Draw();
 
@@ -100,8 +99,8 @@ void AddDraw(std::vector<std::pair<TH1*,QA_object>> inputs, const std::string& t
 
 void close() {
     if (CurrentRow > 0) printPage();
-     std::cout<<"[PDFBuilder] closing  document with "<<CurrentPage << " pages"<< std::endl;
-    c1->Print(Form("%s/report.pdf)",path_.c_str()), "pdf");      // always close at the end
+     std::cout<<"[PDFBuilder] closing  document with "<<CurrentPage << " pages" << " on current row: "<< CurrentRow << std::endl;
+    c1->Print(Form("%s/report.pdf]",path_.c_str()), "pdf");      // always close at the end
 }
 
     
@@ -110,7 +109,7 @@ void close() {
         bool isFirstPage = true;
 
         int CurrentRow = 0;
-        int CurrentPage = 1;
+        int CurrentPage = 0;
         int nRows_ = 10;
         std::string path_;
         TCanvas *c1;

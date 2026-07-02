@@ -97,7 +97,7 @@ TH1* CCDBServer::downloadObject(string RunNumber, string PassName, long timestam
       else if ( object.Task.find("Mc") !=std::string::npos)
          ModuleName ="TracksMc";
       else {
-         cout<<"[ERROR] Wrong Task name: "<< object.Task << " for object: "<< object.Name << " in database: "<< dataBaseType << "Expected: Tracks, Clusters, TracksMc" <<endl;
+         cout<<"[ERROR][downloadObject] Wrong Task name: "<< object.Task << " for object: "<< object.Name << " in database: "<< dataBaseType << "Expected: Tracks, Clusters, TracksMc" <<endl;
          return nullptr;
       }
          std::string fullPath = "/ITS/MO/"+ ModuleName + "/"+ object.Name;
@@ -105,15 +105,15 @@ TH1* CCDBServer::downloadObject(string RunNumber, string PassName, long timestam
           std::cout<<"[DEBUG] [downloadObject] Getting object with full path: "<<fullPath <<" apass is "<< apass <<std::endl;
 
          if (ModuleName == "TracksMc") ModuleName = "simulation";
-        return downloadObject_db(RunNumber, apass, fullPath, object.ObjectType,ModuleName);
+        return downloadObject_db(RunNumber, apass, fullPath, object.ObjectType,ModuleName,periodName);
     }
 
 
-    TH1* CCDBServer::downloadObject_db(std::string RunNumber, std::string PassName, std::string fullPath, std::string ObjectType, std::string module_name) const{
+    TH1* CCDBServer::downloadObject_db(std::string RunNumber, std::string PassName, std::string fullPath, std::string ObjectType, std::string module_name, std::string periodName) const{
         
         //string module_name = "tracks";
-        std::cout<<"getting timestamp for: RunNumber= "<< RunNumber << " PassName= "<< PassName << " module_name= "<< module_name <<std::endl;
-         long timestamp = myDataBase->getTimestamp(RunNumber,PassName,module_name);
+        std::cout<<"[DEBUG][CCDBServer] getting timestamp for: RunNumber= "<< RunNumber << " PassName= "<< PassName << " module_name= "<< module_name <<std::endl;
+         long timestamp = myDataBase->getTimestamp(RunNumber,PassName,module_name,periodName);
          
          std::cout<<"Downloading object with timestamp: "<<timestamp<<std::endl;
          return downloadObject(RunNumber,PassName,timestamp,fullPath,ObjectType);
@@ -131,7 +131,7 @@ long CCDBServer::getNROFs (const string& RunNumber) const{
       std::string fullPath = "/ITS/MO/"+ ModuleName + "/AssociatedClusterFraction";
 
 
-      TH1D *hClustersPerROF = (TH1D*) downloadObject_db(RunNumber, "", fullPath, "TH1", "tracks");
+      TH1D *hClustersPerROF = (TH1D*) downloadObject_db(RunNumber, "", fullPath, "TH1", "tracks",periodName);
 //          TH1* CCDBServer::downloadObject_db(std::string RunNumber, std::string PassName, std::string fullPath, std::string ObjectType, std::string module_name){
 
 

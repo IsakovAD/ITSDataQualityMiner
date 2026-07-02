@@ -1,6 +1,6 @@
 {
   "isEnabled": "0",	
-  "Task": "ITSClusterTask",
+  "Task": "Clusters",
   "Path": "General/General_Occupancy",
   "ObjectType": "TH2",
   "isDoROF_norm": "0",
@@ -9,7 +9,7 @@
 },
 {
   "isEnabled": "0",
-  "Task": "ITSClusterTask",
+  "Task": "Clusters",
   "Path": "Layer0/AverageClusterSize",
   "ObjectType": "TH2",
   "isDoROF_norm": "0",
@@ -18,7 +18,7 @@
 },
 {
   "isEnabled": "0",
-  "Task": "ITSClusterTask",
+  "Task": "Clusters",
   "Path": "Layer1/AverageClusterSize",
   "ObjectType": "TH2",
   "isDoROF_norm": "0",
@@ -27,7 +27,7 @@
 },
 {
   "isEnabled": "0",
-  "Task": "ITSClusterTask",
+  "Task": "Clusters",
   "Path": "Layer2/AverageClusterSize",
   "ObjectType": "TH2",
   "isDoROF_norm": "0",
@@ -36,7 +36,7 @@
 }, 
 {
   "isEnabled": "0",
-  "Task": "ITSClusterTask",
+  "Task": "Clusters",
   "Path": "Layer3/AverageClusterSize",
   "ObjectType": "TH2",
   "isDoROF_norm": "0",
@@ -54,7 +54,7 @@
 },
 {
   "isEnabled": "0",
-  "Task": "ITSClusterTask",
+  "Task": "Clusters",
   "Path": "Layer5/AverageClusterSize",
   "ObjectType": "TH2",
   "isDoROF_norm": "0",
@@ -63,7 +63,7 @@
 },
 {
   "isEnabled": "0",
-  "Task": "ITSClusterTask",
+  "Task": "Clusters",
   "Path": "Layer6/AverageClusterSize",
   "ObjectType": "TH2",
   "isDoROF_norm": "0",
@@ -72,7 +72,7 @@
 },
 {
   "isEnabled": "1",
-  "Task": "ITSClusterTask",
+  "Task": "Clusters",
   "Path": "avg_ClusterOccupation",
   "ObjectType": "TH2",
   "isDoROF_norm": "0",
@@ -81,7 +81,7 @@
 },
 {
   "isEnabled": "1",
-  "Task": "ITSClusterTask",
+  "Task": "Clusters",
   "Path": "avg_AverageClusterSize",
   "ObjectType": "TH2",
   "isDoROF_norm": "0",
@@ -90,7 +90,7 @@
 },
 {
   "isEnabled": "1",
-  "Task": "ITSTrackTask",
+  "Task": "Tracks",
   "Path": "AngularDistribution",
   "ObjectType": "TH2",
   "isDoROF_norm": "0",
@@ -99,7 +99,7 @@
 },
 {
   "isEnabled": "1",
-  "Task": "ITSTrackTask",
+  "Task": "Tracks",
   "Path": "EtaDistribution",
   "ObjectType": "TH1",
   "isDoROF_norm": "0",
@@ -108,7 +108,7 @@
 },
 {
   "isEnabled": "1",
-  "Task": "ITSTrackTask",
+  "Task": "Tracks",
   "Path": "PhiDistribution",
   "ObjectType": "TH1",
   "isDoROF_norm": "0",
@@ -117,7 +117,7 @@
 },
 {
   "isEnabled": "1",
-  "Task": "ITSTrackTask",
+  "Task": "Tracks",
   "Path": "VertexZ",
   "ObjectType": "TH1",
   "isDoROF_norm": "0",
@@ -126,7 +126,7 @@
 },
 {
   "isEnabled": "1",
-  "Task": "ITSTrackTask",
+  "Task": "Tracks",
   "Path": "NClusters",
   "ObjectType": "TH1",
   "isDoROF_norm": "0",

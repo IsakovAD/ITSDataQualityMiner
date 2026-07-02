@@ -82,15 +82,31 @@ TH1* performRatio(TH1 *obj_old, TH1 *obj_new, bool isDoCentralBarrelCut) {
   else
     obj_ratio = (TH1 *)obj_old->Clone("ratio");
 
-  for (int ix = 1; ix <= obj_new->GetNbinsX(); ix++)
-    for (int iy = 1; iy <= obj_new->GetNbinsY(); iy++) {
-      if (obj_new->GetBinContent(ix, iy) == 0)
-        obj_ratio->SetBinContent(ix, iy, -0.01);
-      else
-        obj_ratio->SetBinContent(ix, iy,
-                                 obj_ratio->GetBinContent(ix, iy) /
-                                     obj_new->GetBinContent(ix, iy));
+  //solution to match ratio if the ranges of the two histograms is different
+  for (int ix = 1; ix <= obj_ratio->GetNbinsX(); ix++) {
+    for (int iy = 1; iy <= obj_ratio->GetNbinsY(); iy++) {
+
+        double x = obj_ratio->GetXaxis()->GetBinCenter(ix);
+        double y = obj_ratio->GetYaxis()->GetBinCenter(iy);
+
+        int jx = obj_new->GetXaxis()->FindBin(x);
+        int jy = obj_new->GetYaxis()->FindBin(y);
+
+        if (jx < 1 || jx > obj_new->GetNbinsX() ||
+            jy < 1 || jy > obj_new->GetNbinsY()) {
+            obj_ratio->SetBinContent(ix, iy, -0.01);
+            continue;
+        }
+
+        double denom = obj_new->GetBinContent(jx, jy);
+        if (denom == 0)
+            obj_ratio->SetBinContent(ix, iy, -0.01);
+        else
+            obj_ratio->SetBinContent(ix, iy, obj_ratio->GetBinContent(ix, iy) / denom);
     }
+}
+
+
   if  (obj_old->Integral()!=0) obj_ratio->Scale(obj_new->Integral() / obj_old->Integral());
   if (isDoCentralBarrelCut) {
       obj_ratio->GetXaxis()->SetRangeUser(-1.2, 1.2);

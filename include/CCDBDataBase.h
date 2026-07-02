@@ -48,16 +48,17 @@ void upsert(const std::string& run,
             const std::string& apass,
             const std::string& module_name,
             long timestamp,
-            long created) {
+            long created,
+            const std::string& periodName) {
 
     std::string module_name_ = module_name;
     std::transform(module_name_.begin(), module_name_.end(),
                    module_name_.begin(), ::tolower);
 
     const char* sql =
-        "INSERT INTO timestamps (run_number, apass, module_name, timestamp, created) "
-        "VALUES (?, ?, ?, ?, ?) "
-        "ON CONFLICT(run_number, apass, module_name) DO UPDATE SET "
+        "INSERT INTO timestamps (run_number, apass, module_name, timestamp, created, periodName) "
+        "VALUES (?, ?, ?, ?, ?, ?) "
+        "ON CONFLICT(run_number, apass, module_name, periodName) DO UPDATE SET "
         "  timestamp = excluded.timestamp, "
         "  created   = excluded.created "
         "WHERE excluded.created > timestamps.created;";
@@ -72,6 +73,7 @@ void upsert(const std::string& run,
     sqlite3_bind_text (stmt, 3, module_name_.c_str(), -1, SQLITE_STATIC);
     sqlite3_bind_int64(stmt, 4, timestamp);
     sqlite3_bind_int64(stmt, 5, created);
+    sqlite3_bind_text (stmt, 6, periodName.c_str(),   -1, SQLITE_STATIC);
 
     if (sqlite3_step(stmt) != SQLITE_DONE)
         std::cerr << "[upsert] step failed: " << sqlite3_errmsg(db_) << "\n";
@@ -121,7 +123,8 @@ void setNewestTimestamp(const std::string& module, long created) {
     // ── Query a single timestamp ───────────────────────────────────
     long getTimestamp(const std::string& run,
                       const std::string& apass,
-                      const std::string& module_name) {
+                      const std::string& module_name,
+                      const std::string& periodName) {
 
 
         string module_name_ = module_name;
@@ -131,13 +134,14 @@ void setNewestTimestamp(const std::string& module, long created) {
 
         const char* sql =
             "SELECT timestamp FROM timestamps "
-            "WHERE run_number=? AND apass=? AND module_name=?;";
+            "WHERE run_number=? AND apass=? AND module_name=? AND periodName=?;";
 
         sqlite3_stmt* stmt;
         sqlite3_prepare_v2(db_, sql, -1, &stmt, nullptr);
         sqlite3_bind_text(stmt, 1, run.c_str(),         -1, SQLITE_STATIC);
         sqlite3_bind_text(stmt, 2, apass.c_str(),       -1, SQLITE_STATIC);
         sqlite3_bind_text(stmt, 3, module_name_.c_str(), -1, SQLITE_STATIC);
+        sqlite3_bind_text(stmt, 4, periodName.c_str(),   -1, SQLITE_STATIC);
 
         long result = -1;
         if (sqlite3_step(stmt) == SQLITE_ROW)
@@ -179,8 +183,9 @@ void setNewestTimestamp(const std::string& module, long created) {
     // ── Check if entry exists (to skip re-fetching from CCDB) ─────
     bool exists(const std::string& run,
                 const std::string& apass,
-                const std::string& module_name) {
-        return getTimestamp(run, apass, module_name) != -1;
+                const std::string& module_name,
+                const std::string& periodName) {
+        return getTimestamp(run, apass, module_name, periodName) != -1;
     }
 
 
@@ -213,9 +218,10 @@ void createTable() {
         "  run_number  TEXT NOT NULL,"
         "  apass       TEXT NOT NULL,"
         "  module_name TEXT NOT NULL,"
-        "  timestamp   INTEGER NOT NULL,"   // validity → used to download
-        "  created     INTEGER NOT NULL,"   // upload time → freshness key
-        "  PRIMARY KEY (run_number, apass, module_name)"
+        "  timestamp   INTEGER NOT NULL,"
+        "  created     INTEGER NOT NULL,"
+        "  periodName  TEXT NOT NULL,"
+        "  PRIMARY KEY (run_number, apass, module_name, periodName)"
         ");";
 
     char* err = nullptr;

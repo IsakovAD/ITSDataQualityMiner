@@ -38,9 +38,9 @@ class CCDBServer{
     public:
 
 
-    CCDBServer(const std::string& dataBaseType_, const std::string& apass_): CCDBServer(dataBaseType_, getCCDBport(dataBaseType_), apass_) {}
+    CCDBServer(const std::string& dataBaseType_, const std::string& apass_, const std::string& periodName_): CCDBServer(dataBaseType_, getCCDBport(dataBaseType_), apass_, periodName_) {}
 
-    CCDBServer(std::string dataBaseType_, std::string ccdb_port_, std::string apass_) : dataBaseType(dataBaseType_), ccdb_port(ccdb_port_), apass(apass_) {
+    CCDBServer(std::string dataBaseType_, std::string ccdb_port_, std::string apass_, std::string periodName_) : dataBaseType(dataBaseType_), ccdb_port(ccdb_port_), apass(apass_), periodName(periodName_) {
         ccdbApi.init(ccdb_port_);
         if (!ccdbApi.isHostReachable()) {
             std::cout<<"[ERORR][CCDBServer] CCDB " << ccdb_port_ <<" could not be reached !"<<std::endl;
@@ -64,7 +64,7 @@ class CCDBServer{
     };
 
     TH1* downloadObject(std::string RunNumber, std::string PassName, long timestamp, std::string fullPath, std::string ObjectType) const;
-    TH1* downloadObject_db(std::string RunNumber, std::string PassName, std::string fullPath, std::string ObjectType, std::string module_name) const;
+    TH1* downloadObject_db(std::string RunNumber, std::string PassName, std::string fullPath, std::string ObjectType, std::string module_name, std::string periodName) const;
     TH1* downloadObject(string RunNumber, QA_object object) const;
 
 
@@ -76,7 +76,7 @@ class CCDBServer{
 
     string getApass() const {return apass;}
     string getPort() const {return ccdb_port;}
-    bool getIsMC() const {return dataBaseType=="mc";}     
+    bool getIsMC() const {return dataBaseType=="qc_mc";}     
     
     static std::string getCCDBport(const std::string& type) {
         return type == "qc_mc" ? "ali-qcdbmc-gpn.cern.ch:8083"
@@ -127,7 +127,7 @@ class CCDBServer{
 
               if(word=="Validity:"){
 
-                                //check if element is fresher than newest entry in local db:
+                //check if element is fresher than newest entry in local db:
                 if (timestamp_created>0 && timestamp_created<=timestamp_max) { // true if this item is already in the local db 
                         std::cout<<"[INFO][CCDBServer] Timestamp: "<< timestamp_created << " is smaller or equal to first entry in local db: "<<timestamp_max << " finishing "<<std::endl;
                         break;
@@ -138,10 +138,11 @@ class CCDBServer{
 
 
                 //filling new timestamp to db
+                
                 if (timestamp > 0){
 
-                    std::cout<<"[INFO][CCDBServer][UpdateModule] New insertion with: "<< runnumber << " "<< pass << " "<< module_name << " "<< timestamp <<" timestamp_created= "<< timestamp_created <<std::endl;
-                    myDataBase->upsert(runnumber, pass, module_name, timestamp,timestamp_created);
+                    std::cout<<"[INFO][CCDBServer][UpdateModule][" <<dataBaseType<<  " ] New insertion with: runnumber="<< runnumber << " pass="<< pass << " module_name="<< module_name << " "<< timestamp <<" timestamp_created= "<< timestamp_created << " periodName: "<< periodName <<std::endl;
+                    myDataBase->upsert(runnumber, pass, module_name, timestamp,timestamp_created,periodName);
                     nInsertions++;
                 }
                 //processing the new element
@@ -166,7 +167,9 @@ class CCDBServer{
                 ss>>word;
                 ss>>word;
 
-                periodName = word;
+                if (getIsMC()) periodName = word;
+                else periodName = "";
+                
             }
             if (word=="PassName"){
                 ss>>word;
@@ -199,6 +202,7 @@ class CCDBServer{
    std::string dataBaseType;
    std::string ccdb_port;
    std::string apass;
+   std::string periodName;
    std::unique_ptr<CCDBDataBase> myDataBase;
    std::vector<QCModule> modules; //
 

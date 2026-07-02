@@ -108,8 +108,8 @@ void AssyncProcessor::formatAssyncHistogram(const QA_object& object, TH1* histog
 int AssyncProcessor::StartQA() {
 
 
-  CCDBServer server_new(Data2Type, Data2Pass);
-  CCDBServer server_old(Data1Type, Data1Pass);
+  CCDBServer server_new(Data2Type, Data2Pass,MCPeriodName2);
+  CCDBServer server_old(Data1Type, Data1Pass, MCPeriodName1);
 
   std::vector<QA_object> vObjects_old = readObjects(Form("inputs/its-qa-qc/objects_%s.json", Data1Type.c_str()));
   std::vector<QA_object> vObjects_new = readObjects(Form("inputs/its-qa-qc/objects_%s.json", Data2Type.c_str()));
@@ -148,7 +148,6 @@ int AssyncProcessor::StartQA() {
       if (hist_old) formatAssyncHistogram(object_old,hist_old,nROFs_old, Data1Pass, "Old");
       if (hist_new) formatAssyncHistogram(object_new,hist_new,nROFs_new ,Data2Pass, "New");
       
-
 
       string analysis_result;                    
       TH1* ratio = performRatio(hist_old, hist_new, object_old.isCentralBarrelCut);

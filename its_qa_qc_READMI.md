@@ -81,7 +81,7 @@ All configuration lives under `inputs/its-qa-qc/`.
 The file passed to `--input` selects the two passes to compare and the run
 list. Example (`analysis_params.json`):
 
-```json
+```json for MC vs async
 {
   "run_list": "runs_O2_6820_LHC23k4i_apass4-LHC23.txt",
   "DataType_old": "qc_async",
@@ -92,6 +92,19 @@ list. Example (`analysis_params.json`):
   "MCPeriod_new": " LHC23k4i "
 }
 ```
+
+```json for data vs async
+{
+  "run_list": "runs_O2_6820_LHC23k4i_apass4-LHC23.txt",
+  "DataType_old": "qc_async",
+  "DataType_new": "qc",
+  "DataPass_old": "apass4",
+  "DataPass_new": " ",
+  "MCPeriod_old": " ",
+  "MCPeriod_new": " "
+}
+```
+
 
 `DataType_*` selects the CCDB database and the matching object list
 (`objects_<DataType>.json`). Recognized types: `qc_async`, `qc`, `qc_mc`.
