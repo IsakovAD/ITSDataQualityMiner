@@ -94,13 +94,13 @@ TH1* performRatio(TH1 *obj_old, TH1 *obj_new, bool isDoCentralBarrelCut) {
 
         if (jx < 1 || jx > obj_new->GetNbinsX() ||
             jy < 1 || jy > obj_new->GetNbinsY()) {
-            obj_ratio->SetBinContent(ix, iy, -0.01);
+            obj_ratio->SetBinContent(ix, iy, 0.0);
             continue;
         }
 
         double denom = obj_new->GetBinContent(jx, jy);
         if (denom == 0)
-            obj_ratio->SetBinContent(ix, iy, -0.01);
+            obj_ratio->SetBinContent(ix, iy, 0.0);
         else
             obj_ratio->SetBinContent(ix, iy, obj_ratio->GetBinContent(ix, iy) / denom);
     }
