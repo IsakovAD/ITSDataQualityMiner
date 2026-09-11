@@ -7,21 +7,18 @@ void AssyncProcessor::parse_parameters(const string &json_file_path) {
   auto json_file = parseJSON(json_file_path);
   if (!json_file.empty()) {
     const auto &params = json_file[0];
-
-
-    //TO-DO: get rid of of 1 and 2 in the names
-
-    data_path = params.at("run_list");
-    Data1Type = params.at("DataType_old");
-    Data2Type = params.at("DataType_new");
-    Data1Pass = params.at("DataPass_old");
-    Data2Pass = params.at("DataPass_new");
     
-    MCPeriodName1 = params.at("MCPeriod_old");
-    MCPeriodName2 = params.at("MCPeriod_new");
+    data_path = params.at("run_list");
+    DataTypeOld = params.at("DataType_old");
+    DataTypeNew = params.at("DataType_new");
+    DataPassOld = params.at("DataPass_old");
+    DataPassNew = params.at("DataPass_new");
+    
+    MCPeriodNameOld = params.at("MCPeriod_old");
+    MCPeriodNameNew = params.at("MCPeriod_new");
 
     //[TO-DO] error checks on wrong json format;
-    std::cout<<"[INFO] [AssyncProcessor] Starting Analysis with: data_path= "<<data_path << " Data Type old: "<< Data1Type<< " Data Type new: "<< Data2Type << " Pass old: "<< Data1Pass << " Pass new: "<<Data2Pass << " MC period old: "<< MCPeriodName1 << " MC period new: "<< MCPeriodName2 <<std::endl; 
+    std::cout<<"[INFO] [AssyncProcessor] Starting Analysis with: data_path= "<<data_path << " Data Type old: "<< DataTypeOld<< " Data Type new: "<< DataTypeNew << " Pass old: "<< DataPassOld << " Pass new: "<<DataPassNew << " MC period old: "<< MCPeriodNameOld << " MC period new: "<< MCPeriodNameNew <<std::endl; 
   } else {
     std::cout << "[ERROR] [AssyncProcessor] can't open .json with parameters" << std::endl;
     exit(1);
@@ -102,17 +99,17 @@ void AssyncProcessor::formatAssyncHistogram(const QA_object& object, TH1* histog
     if ( object.Name.find("VertexZ") != string::npos) histogram->Rebin(100);
 
     histogram->SetTitle(Form("%s data: %s", type.c_str(),
-                      Data1Pass.size() < 2 ? "online" : apass.c_str()));
+                      DataPassOld.size() < 2 ? "online" : apass.c_str()));
 }
 
 int AssyncProcessor::StartQA() {
 
 
-  CCDBServer server_new(Data2Type, Data2Pass,MCPeriodName2);
-  CCDBServer server_old(Data1Type, Data1Pass, MCPeriodName1);
+  CCDBServer server_new(DataTypeNew, DataPassNew,MCPeriodNameNew);
+  CCDBServer server_old(DataTypeOld, DataPassOld, MCPeriodNameOld);
 
-  std::vector<QA_object> vObjects_old = readObjects(Form("inputs/its-qa-qc/objects_%s.json", Data1Type.c_str()));
-  std::vector<QA_object> vObjects_new = readObjects(Form("inputs/its-qa-qc/objects_%s.json", Data2Type.c_str()));
+  std::vector<QA_object> vObjects_old = readObjects(Form("inputs/its-qa-qc/objects_%s.json", DataTypeOld.c_str()));
+  std::vector<QA_object> vObjects_new = readObjects(Form("inputs/its-qa-qc/objects_%s.json", DataTypeNew.c_str()));
 
   PDFBuilder *myPDF = new PDFBuilder(10, folder_name.c_str());
 
@@ -145,16 +142,16 @@ int AssyncProcessor::StartQA() {
       if (isObjectNamesMatch) hist_old=getAssyncObject (object_old, run, server_old);
      
               
-      if (hist_old) formatAssyncHistogram(object_old,hist_old,nROFs_old, Data1Pass, "Old");
-      if (hist_new) formatAssyncHistogram(object_new,hist_new,nROFs_new ,Data2Pass, "New");
+      if (hist_old) formatAssyncHistogram(object_old,hist_old,nROFs_old, DataPassOld, "Old");
+      if (hist_new) formatAssyncHistogram(object_new,hist_new,nROFs_new ,DataPassNew, "New");
       
 
       string analysis_result;                    
       TH1* ratio = performRatio(hist_old, hist_new, object_old.isCentralBarrelCut);
       if (ratio){
             ratio->SetTitle(Form("Ratio: %s / %s", 
-                           Data1Pass.size() < 2 ? "online" : Data1Pass.c_str(),
-                           Data2Pass.size() < 2 ? "online" : Data2Pass.c_str()));
+                           DataPassOld.size() < 2 ? "online" : DataPassOld.c_str(),
+                           DataPassNew.size() < 2 ? "online" : DataPassNew.c_str()));
             analysis_result = doCompare(ratio, ratio_thr, object_old.isCentralBarrelCut || object_new.isCentralBarrelCut );
       }else {
         nEmpty++;

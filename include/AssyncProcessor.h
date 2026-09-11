@@ -46,7 +46,7 @@ class AssyncProcessor{
 
         void PrepareOutputFolders();
 
-        string data_path, Data1Type, Data2Type, Data1Pass, Data2Pass, MCPeriodName1, MCPeriodName2;
+        string data_path, DataTypeOld, DataTypeNew, DataPassOld, DataPassNew, MCPeriodNameOld, MCPeriodNameNew;
 		void parse_parameters(const string& json_file_path);
 		std::vector <string> getRuns (const string& path) const;
 		std::vector<QA_object> readObjects(const string& file_name);
