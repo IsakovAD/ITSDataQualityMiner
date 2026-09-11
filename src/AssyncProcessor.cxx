@@ -171,7 +171,7 @@ int AssyncProcessor::StartQA() {
         }, object_title, run);
       }
 
-      else if (hist_new && (object_new.Name == "efficiency_pt" || object_new.Name == "efficiency_phi")) {
+      else if (!hist_old && hist_new && (object_new.Name == "efficiency_pt" || object_new.Name == "efficiency_phi")) {
              
         myPDF->AddDraw({
           {nullptr, nullptr},
