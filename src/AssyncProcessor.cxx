@@ -105,7 +105,7 @@ void AssyncProcessor::formatAssyncHistogram(const QA_object& object, TH1* histog
 int AssyncProcessor::StartQA() {
 
 
-  CCDBServer server_new(DataTypeNew, DataPassNew,MCPeriodNameNew);
+  CCDBServer server_new(DataTypeNew, DataPassNew, MCPeriodNameNew);
   CCDBServer server_old(DataTypeOld, DataPassOld, MCPeriodNameOld);
 
   std::vector<QA_object> vObjects_old = readObjects(Form("inputs/its-qa-qc/objects_%s.json", DataTypeOld.c_str()));
@@ -163,19 +163,23 @@ int AssyncProcessor::StartQA() {
      
       if (analysis_result.size()>0) {
         nProblem++;
-
-
-
-      myPDF->AddDraw({
-              {hist_old, object_old},
-              {hist_new, object_new},              
-              {ratio,   object_new}   
+      
+        myPDF->AddDraw({
+          {hist_old, object_old},
+          {hist_new, object_new},              
+          {ratio,   object_new}   
         }, object_title, run);
-   
       }
 
-
-
+      else if (hist_new && (object_new.Name == "efficiency_pt" || object_new.Name == "efficiency_phi")) {
+             
+        myPDF->AddDraw({
+          {nullptr, nullptr},
+          {hist_new, object_new},
+          {nullptr, nullptr}
+        }, object_title, run);
+      }
+    
     }
 
 
